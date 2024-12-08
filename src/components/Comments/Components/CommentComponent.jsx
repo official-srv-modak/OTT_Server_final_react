@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 import {
   Comment,
-  CommentText,
-  CommentMetadata,
   CommentGroup,
   CommentContent,
   CommentAvatar,
   CommentActions,
   Button,
   CommentAuthor,
+  CommentMetadata,
+  CommentText,
 } from "semantic-ui-react";
 import ReplyComponent from "./ReplyComponent";
 import AddReply from "./AddReply";
@@ -22,8 +22,6 @@ const CommentComponent = ({ id, postId, author, createdtime, text }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // const formattedTime = useMemo(()=>moment(time).format("DD/MM/YYYY, hh:mm A"));
-
   const toggleReplyVisibility = () => {
     setIsReplyVisible(!isReplyVisible);
   };
@@ -33,7 +31,6 @@ const CommentComponent = ({ id, postId, author, createdtime, text }) => {
       setLoading(true);
       const response = await fetchRepliesByCommentId(id);
       if (response.status === 200 || response.status === 201) {
-        
         setReplies(response.data);
       }
     } catch (err) {
@@ -64,25 +61,28 @@ const CommentComponent = ({ id, postId, author, createdtime, text }) => {
   };
 
   return (
-    <CommentGroup>
-      <Comment style={{ marginTop: "25px" }}>
-        <CommentAvatar src="https://react.semantic-ui.com/images/avatar/small/elliot.jpg" />
-        <CommentContent>
-          <CommentAuthor as="a">{author}</CommentAuthor>
-          <CommentMetadata>
+    <CommentGroup className="custom-commentgroup">
+      <Comment className="custom-comment">
+      <div className="custom-author-metadata-container">
+        
+        <CommentContent className="custom-comment-content">
+        <div className="custom-comment-header">
+        <CommentAvatar
+          src="https://react.semantic-ui.com/images/avatar/small/elliot.jpg"
+        />
+          <CommentAuthor as="a" className="custom-comment-author">
+            {author}
+          </CommentAuthor>
+          <CommentMetadata className="custom-comment-metadata">
             <div>{createdtime}</div>
           </CommentMetadata>
-          <CommentText>
+        </div>
+          <CommentText className="custom-comment-textarea">
             <p>{text}</p>
           </CommentText>
-          <CommentActions>
+          <CommentActions className="custom-comment-actions">
             <Button
-              style={{
-                backgroundColor: "transparent",
-                boxShadow: "none",
-                color: "#4183c4",
-                padding: "0",
-              }}
+              className="custom-primary-button"
               size="tiny"
               onClick={toggleReplyVisibility}
             >
@@ -90,6 +90,17 @@ const CommentComponent = ({ id, postId, author, createdtime, text }) => {
             </Button>
           </CommentActions>
         </CommentContent>
+        </div>
+
+        {/* Conditionally render AddReply */}
+        {isReplyVisible && (
+          <AddReply
+            userId={author}
+            postId={postId}
+            commentId={id}
+            onReplyPosted={handleReplyPosted}
+          />
+        )}
 
         {/* Render replies with pagination */}
         {replies.slice(0, displayedReplies).map((reply) => (
@@ -105,38 +116,45 @@ const CommentComponent = ({ id, postId, author, createdtime, text }) => {
           />
         ))}
 
+</Comment>
+        
         {/* Buttons for Show More, Show Less, Show All */}
         {replies.length > 5 && (
-          <div style={{ marginTop: "10px" }}>
+          <div className="custom-reply-pagination">
             {displayedReplies < replies.length && (
-              <Button size="small" onClick={handleShowMore}>
+              <Button
+                className="custom-secondary-button"
+                size="small"
+                onClick={handleShowMore}
+              >
                 Show More
               </Button>
             )}
             {displayedReplies > 5 && (
-              <Button size="small" onClick={handleShowLess}>
+              <Button
+                className="custom-reply-pagination"
+                size="small"
+                onClick={handleShowLess}
+              >
                 Show Less
               </Button>
             )}
             {displayedReplies !== replies.length && (
-              <Button size="small" onClick={handleShowAll}>
+              <Button
+                className="custom-secondary-button"
+                size="small"
+                onClick={handleShowAll}
+              >
                 Show All
               </Button>
             )}
           </div>
         )}
-
-        {/* Conditionally render AddReply */}
-        {isReplyVisible && (
-          <AddReply
-            userId={author}
-            postId={postId}
-            commentId={id}
-            onReplyPosted={handleReplyPosted}
-          />
-        )}
-      </Comment>
+        
+      
     </CommentGroup>
+
+    
   );
 };
 

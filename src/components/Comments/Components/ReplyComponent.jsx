@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect,useMemo } from "react";
+import React, { useState, useRef, useEffect } from "react"; 
 import {
   TextArea,
   Comment,
@@ -15,15 +15,12 @@ import {
 import moment from "moment";
 import { fetchRepliesByCommentId, addReply } from "../Services/api";
 
-const ReplyComponent = ({ id, userId, postId, createdtime, content, commentId,onReplyPosted }) => {
+const ReplyComponent = ({ id, userId, postId, createdtime, content, commentId, onReplyPosted }) => {
   const [isReplyVisible, setIsReplyVisible] = useState(false);
   const [replies, setReplies] = useState([]);
   const [replyText, setReplyText] = useState("");
   const [error, setError] = useState(null);
   const textareaRef = useRef(null);
-
-  // Memoize formattedTime to prevent unnecessary recalculations
-  // const formattedTime = useMemo(() => moment(createdtime).format("DD/MM/YYYY, hh:mm A"), [createdtime]);
 
   const toggleReplyVisibility = () => {
     setIsReplyVisible(!isReplyVisible);
@@ -65,7 +62,7 @@ const ReplyComponent = ({ id, userId, postId, createdtime, content, commentId,on
       if (response.status === 200 || response.status === 201) {
         setReplyText(""); // Clear the input
         fetchReplies(); // Refresh replies
-        if (onReplyPosted){
+        if (onReplyPosted) {
           onReplyPosted();
         }
       }
@@ -79,24 +76,20 @@ const ReplyComponent = ({ id, userId, postId, createdtime, content, commentId,on
   };
 
   return (
-    <CommentGroup>
-      <Comment>
-        <CommentAvatar src="https://react.semantic-ui.com/images/avatar/small/jenny.jpg" />
-        <CommentContent>
-          <CommentAuthor as="a">{userId}</CommentAuthor>
-          <CommentMetadata>
-            <div>{createdtime}</div>
-          </CommentMetadata>
-          <Comment.Text>{content}</Comment.Text>
-          <CommentActions>
+    <CommentGroup className="custom-replies">
+      <Comment className=".custom-reply">
+        <CommentContent className="custom-reply-content">
+        <div className="custom-author-metadata-container">
+        <CommentAvatar src="https://react.semantic-ui.com/images/avatar/small/jenny.jpg"  />
+            <CommentAuthor as="a" className="custom-reply-author">{userId}</CommentAuthor>
+            <CommentMetadata className="custom-comment-metadata">
+              <div>{moment(createdtime).format("DD/MM/YYYY, hh:mm A")}</div>
+            </CommentMetadata>
+        </div>
+          <Comment.Text className="custom-comment-textarea">{content}</Comment.Text>
+          <CommentActions className="custom-comment-actions">
             <Button
-              style={{
-                backgroundColor: "transparent",
-                boxShadow: "none",
-                color: "#4183c4",
-                padding: "0",
-              }}
-              size="tiny"
+              className="custom-primary-button"
               onClick={toggleReplyVisibility}
             >
               {isReplyVisible ? "Cancel" : "Reply"}
@@ -104,19 +97,20 @@ const ReplyComponent = ({ id, userId, postId, createdtime, content, commentId,on
           </CommentActions>
 
           {isReplyVisible && (
-            <Form>
+            <Form className="custom-form">
               <Form.Field>
                 <TextArea
                   ref={textareaRef}
                   value={replyText}
                   onChange={handleChange}
                   placeholder={`Write a reply to ${userId}...`}
+                  className="custom-comment-textarea"
                 />
               </Form.Field>
-              <Button onClick={handlePost} primary>
+              <Button onClick={handlePost} className="custom-primary-button">
                 Post
               </Button>
-              <Button onClick={handleClear} secondary>
+              <Button onClick={handleClear} className="custom-secondary-button">
                 Clear
               </Button>
             </Form>

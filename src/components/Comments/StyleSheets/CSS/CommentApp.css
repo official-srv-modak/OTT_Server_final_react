@@ -1,95 +1,362 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Variables */
+:root {
+  --primary-color: #1e88e5;
+  --primary-hover-color: #1565c0;
+  --secondary-color: #757575;
+  --secondary-hover-color: #5c5c5c;
+  --background-color: #121212;
+  --card-background-color: #1f1f1f;
+  --text-light: #e0e0e0;
+  --text-muted: #9e9e9e;
+  --error-color: #e57373;
+  --success-color: #81c784;
+}
+
 /* General App Styling */
-body {
+.custom-body {
   margin: 0;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  background-color: #121212; /* Dark background */
-  color: #e0e0e0; /* Light text color */
+  background-color: var(--background-color);
+  color: hsl(0, 0%, 88%);
 }
 
-.CommentApp {
+.custom-comment-app {
   padding: 20px;
+  margin-top: 20px;
 }
 
-header.App-header {
-  background-color: #1e88e5; /* Darker blue */
+.custom-header {
+  background-color: var(--primary-color);
   color: white;
   padding: 20px;
   text-align: center;
 }
 
-header.App-header h1 {
+.custom-header h1 {
   font-size: 2.5rem;
   margin: 0;
 }
 
 /* Content Styling */
-.comment-main {
+.custom-comment-main {
   max-width: 800px;
   margin: 20px auto;
-  background: #1f1f1f; /* Darker card background */
+  background: var(--card-background-color);
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Softer shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Custom Button Tweaks */
-.ui.button.primary {
-  background-color: #1e88e5;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .custom-comment-main {
+    padding: 15px;
+    max-width: 90%;
+  }
+}
+
+/* Button Styling */
+/* Universal Button Styling */
+.custom-secondary-button,
+.custom-primary-button {
+  padding: 10px 20px; /* Same padding for both buttons */
+  border: none;
+  border-radius: 4px; /* Same border radius */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block; /* Ensure inline block display for both */
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+  height: auto; /* Let the height be flexible with padding */
+}
+
+/* Primary Button */
+.custom-primary-button {
+  background-color: var(--primary-color);
   color: white;
+  margin-right: 10px; /* Add margin as needed */
+  margin-bottom: 10px; /* Add margin as needed */
+  margin-top: 10px; /* Add margin as needed */
 }
 
-.ui.button.primary:hover {
-  background-color: #1565c0; /* Darker blue on hover */
-}
-
-.ui.button.negative {
-  background-color: #e53935;
+/* Secondary Button */
+.custom-secondary-button {
+  background-color: var(--secondary-color);
   color: white;
+  margin-right: 10px; /* Add margin as needed */
+  margin-bottom: 10px; /* Add margin as needed */
+  margin-top: 10px; /* Add margin as needed */
 }
 
-.ui.button.negative:hover {
-  background-color: #d32f2f; /* Darker red on hover */
+.custom-primary-button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+
+.custom-secondary-button:hover {
+  background-color: var(--secondary-hover-color);
 }
 
 /* Comment Section */
-.ui.comments {
+.custom-comments {
   margin-top: 20px;
 }
 
-.ui.comment {
+.custom-comment {
   margin-bottom: 15px;
 }
 
-.ui.comment .content {
-  border-bottom: 1px solid #444; /* Subtle border */
+.custom-comment .custom-content {
+  border-bottom: 1px solid #444;
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
 
 /* Form Styling */
-.ui.form {
+.custom-form {
   margin-top: 20px;
 }
 
-.ui.form .field label {
+.custom-form .custom-field-label {
   font-size: 1rem;
-  color: #e0e0e0; /* Light text color */
+  color: var(--text-light);
+}
+
+.custom-comment-textarea {
+  width: 100%;
+  min-height: 50px;
+  max-height: 300px; /* Prevents the height from growing too much */
+  max-width: 100%; /* Ensures it doesn't expand beyond the container */
+  background-color: #2a2a2a; /* Slightly darker background for comments */
+  color: var(--text-light);
+  
+  border-radius: 4px;
+  padding: 10px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  resize: vertical; /* Restrict resizing to vertical only */
+  position: relative;
+}
+
+.custom-comment-textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 4px var(--primary-color);
+}
+
+.custom-comment-textarea:hover {
+  background-color: #333333; /* Slightly lighter background on hover */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+/* Comment Form Container */
+.custom-comment-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: var(--card-background-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Button Container */
+.custom-comment-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Error Message */
+.custom-error-message {
+  color: var(--error-color);
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Success Message */
+.custom-success-message {
+  color: var(--success-color);
+  font-size: 0.9rem;
+  margin-top: 10px;
 }
 
 /* Footer */
-footer {
+.custom-footer {
   text-align: center;
   padding: 20px;
-  background-color: #1e1e1e; /* Dark footer */
-  color: #9e9e9e; /* Muted text color */
+  background-color: #1e1e1e;
+  color: var(--text-muted);
   font-size: 0.9rem;
   margin-top: 20px;
 }
 
-/* Adjust the label spacing */
-.ui.label {
-  margin-right: 5px;
-  margin-bottom: 5px;
-  background-color: #333; /* Dark label background */
-  color: #e0e0e0; /* Light text color */
+/* Comment Actions */
+.custom-comment-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+
+.custom-reply-toggle-button {
+  background-color: transparent;
+  color: var(--primary-color);
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.custom-reply-toggle-button:hover {
+  color: var(--primary-hover-color);
+}
+
+.custom-reply-toggle-button:focus {
+  outline: none;
+}
+
+.custom-comment-header {
+  display: flex;
+  align-items: center; /* Vertically centers the items */
+  margin: 0;
+  padding: 0;
+}
+
+
+.custom-comment-content {
+  padding-left: 10px;
+  width: 100%;
+  border-left: 2px solid #444;
+}
+
+.custom-reply-container {
+  margin-left: 20px;
+}
+
+.custom-reply-toggle-button {
+  margin-left: 10px;
+}
+
+/* Ensure proper styling for nested replies */
+.custom-form {
+  margin-top: 10px;
+  padding-left: 10px;
+  border-left: 2px solid #444;
+}
+
+.custom-replies {
+  margin-top: 10px;
+  margin-left: 50px; /* Indentation to show nesting */
+}
+
+.custom-reply {
+  margin-bottom: 15px;
+  border-left: 3px solid #666; /* Slightly lighter border for visibility */
+  border-bottom: 1px dashed #777; /* Lighter dashed horizontal border */
+  border-radius: 4px; /* Smooth corners for a refined appearance */
+  background: linear-gradient(to right, #333, #2a2a2a); /* Lighter gradient for better contrast */
+  
+}
+
+/* Styles for the reply content container */
+.custom-reply-content {
+  display: block; /* Ensure elements stack vertically */
+  padding-left: 10px;
+  box-shadow: 0 2px 8px rgba(250, 250, 250, 0.1); /* Subtle shadow for replies */
+  border-left: 2px solid #666; /* Border to visually differentiate replies */
+  margin-bottom: 15px; /* Space between replies */
+}
+
+/* Author styling for comments */
+.custom-comment-author {
+  font-weight: bold;
+  font-size: 1rem; /* Slightly larger font for main comments */
+  color: #ffffff; /* Bright text for black theme */
+  text-decoration: none;
+  margin-left: 10px;
+  margin-right: 20px;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.custom-comment-author:hover {
+  color: var(--primary-color); /* Highlight color on hover */
+}
+
+/* Author styling for replies */
+.custom-reply-author {
+  font-weight: 600; /* Less bold for replies */
+  font-size: 0.9rem; /* Slightly smaller font for replies */
+  color: #bbbbbb; /* Light gray for differentiation */
+  text-decoration: none;
+}
+
+.custom-reply-author:hover {
+  color: var(--primary-color); /* Same hover effect for consistency */
+}
+
+/* Container for author and metadata */
+.custom-author-metadata-container {
+  display: flex; /* Align author and metadata horizontally */
+  align-items: center; /* Vertically center content */
+  gap: 10px; /* Space between author and metadata */
+  margin-bottom: 5px; /* Space before the next content block */
+}
+
+/* Metadata styling */
+.custom-comment-metadata {
+  font-size: 0.85rem; /* Slightly smaller font for metadata */
+  color: #888888; /* Subtle gray for metadata */
+  white-space: nowrap; /* Prevent metadata from breaking to a new line */
+  margin: 0; /* Remove any margin */
+  padding: 0; /* Remove any padding */
+}
+
+
+.custom-commentgroup {
+  border-bottom: 0.5px solid #a9a7a7; /* Subtle bottom border line */
+  margin-top: 10px; /* Margin above */
+  margin-bottom: 30px; /* Margin below */
+  
+}
+
+.custom-reply-pagination {
+  display: flex;
+  justify-content: center; /* Center the pagination buttons */
+  align-items: center; /* Vertically align items */
+  margin-top: 20px; /* Margin at the top */
+  margin-bottom: 20px; /* Margin at the bottom */
+}
+
+.custom-reply-pagination button {
+  background-color: #f0f0f0; /* Light background for pagination buttons */
+  border: 1px solid #ccc; /* Border color */
+  color: #333; /* Text color */
+  padding: 8px 15px; /* Padding around the text */
+  margin: 0 5px; /* Space between buttons */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth hover effects */
+}
+
+.custom-reply-pagination button:hover {
+  background-color: #e0e0e0; /* Darker background on hover */
+  border-color: #888; /* Darker border on hover */
+}
+
+.custom-reply-pagination button:disabled {
+  background-color: #e0e0e0; /* Light gray background for disabled buttons */
+  color: #bbb; /* Light gray text */
+  cursor: not-allowed; /* Indicating the button is disabled */
+}
+
+.custom-reply-pagination span {
+  font-size: 14px; /* Font size for pagination text */
+  color: #555; /* Text color for pagination status (like page numbers) */
 }

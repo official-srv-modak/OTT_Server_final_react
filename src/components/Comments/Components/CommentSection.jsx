@@ -3,7 +3,7 @@ import { Loader, Message, Header, Button } from "semantic-ui-react";
 import CommentComponent from "./CommentComponent";
 import AddComment from "./AddComment";
 import moment from "moment";
-import '../StyleSheets/CSS/CommentApp.css';
+import "../StyleSheets/CSS/CommentApp.css";
 import { fetchCommentByPostId } from "../Services/api";
 
 const CommentSection = ({ postId }) => {
@@ -52,15 +52,9 @@ const CommentSection = ({ postId }) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Determine the latest comment time or use the current time
-  const latestTime =
-    comments.length > 0
-      ? comments[0].formattedTime // The most recent comment is the first in the sorted list
-      : moment().format("DD MMM YYYY, hh:mm A");
-
   return (
     <div>
-      <Header as="h2" dividing>
+      <Header as="h2" className="custom-header-h1" dividing>
         Comments
       </Header>
 
@@ -81,7 +75,7 @@ const CommentSection = ({ postId }) => {
 
       {!loading && !error && comments.length > 0 && (
         <>
-          <Header as="h3" dividing>
+          <Header className="custom-header-h1" as="h3" dividing>
             Previous Comments
           </Header>
           {comments.slice(0, visibleCount).map((comment) => (
@@ -90,7 +84,7 @@ const CommentSection = ({ postId }) => {
               id={comment.id}
               postId={postId}
               author={comment.userId}
-              createdtime={latestTime} // Pass preformatted time
+              createdtime={comment.formattedTime}
               text={comment.content}
               replies={comment.replies}
             />
@@ -98,9 +92,8 @@ const CommentSection = ({ postId }) => {
 
           {visibleCount < comments.length && (
             <Button
+              className="custom-primary-button"
               onClick={handleLoadMore}
-              primary
-              style={{ marginTop: "20px", marginRight: "10px" }}
             >
               Load More
             </Button>
@@ -108,9 +101,8 @@ const CommentSection = ({ postId }) => {
 
           {visibleCount > 10 && (
             <Button
+              className="custom-secondary-button"
               onClick={handleGoBackToTop}
-              secondary
-              style={{ marginTop: "20px" }}
             >
               Go Back to Top
             </Button>
