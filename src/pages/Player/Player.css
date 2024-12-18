@@ -1,5 +1,6 @@
 .player {
     width: 90%;
+    height: 90%;
     /* max-width: 800px; Set a maximum width for larger screens */
     display: flex;
     flex-direction: column;

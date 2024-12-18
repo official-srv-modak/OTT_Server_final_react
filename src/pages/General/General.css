@@ -140,4 +140,13 @@
         align-items: center;
         padding-top: 10%;
     }
+    .general-result-image {
+        width: 100%;  /* Fixed width */
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        flex-shrink: 0; /* Prevent image from shrinking */
+        max-width: 100%; /* Allow image to scale down if container is smaller */
+        object-fit: cover; /* Ensure image covers its container without distortion */
+    }    
 }
