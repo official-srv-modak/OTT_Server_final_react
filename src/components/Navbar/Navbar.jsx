@@ -64,6 +64,10 @@ const Navbar = ({ flag }) => {
     setIsMenuOpen((prev) => !prev);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -78,23 +82,23 @@ const Navbar = ({ flag }) => {
         <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           {flag !== 1 && (
             <>
-              <li><Link to="/general">Home</Link></li>
-              <li><Link to="/">OTT Server</Link></li>
-              <li><Link to="/movies">Movies</Link></li>
-              <li><Link to="/navy">Navy</Link></li>
-              <li><Link to="/army">Army</Link></li>
-              <li><Link to="/airforce">Air Force</Link></li>
-              <li><Link to="/categories/horror">ANO</Link></li>
-              <li><Link to="/categories/scifi">Live Events</Link></li>
-              <li><Link to="/ebooks">Ebooks</Link></li>
-              <li><Link to="/exam">Exam</Link></li>
-              <li><Link to="/categories/misc">Misc</Link></li>
+              <li><Link to="/general" onClick={closeMenu}>Home</Link></li>
+              <li><Link to="/" onClick={closeMenu}>OTT Server</Link></li>
+              <li><Link to="/movies" onClick={closeMenu}>Movies</Link></li>
+              <li><Link to="/navy" onClick={closeMenu}>Navy</Link></li>
+              <li><Link to="/army" onClick={closeMenu}>Army</Link></li>
+              <li><Link to="/airforce" onClick={closeMenu}>Air Force</Link></li>
+              <li><Link to="/categories/horror" onClick={closeMenu}>ANO</Link></li>
+              <li><Link to="/categories/scifi" onClick={closeMenu}>Live Events</Link></li>
+              <li><Link to="/ebooks" onClick={closeMenu}>Ebooks</Link></li>
+              <li><Link to="/exam" onClick={closeMenu}>Exam</Link></li>
+              <li><Link to="/categories/misc" onClick={closeMenu}>Misc</Link></li>
             </>
           )}
         </ul>
         <div className="navbar-right">
           {flag !== 1 && (
-            <img src={search_icon} alt="Search Icon" className="icons" onClick={() => navigate('/search')} />
+            <img src={search_icon} alt="Search Icon" className="icons" onClick={() => { closeMenu(); navigate('/search'); }} />
           )}
           <div className="navbar-profile">
             <img src={profile_icon} alt="Profile Icon" className="profile" />
@@ -106,7 +110,7 @@ const Navbar = ({ flag }) => {
                   <button onClick={signOut}>Sign Out</button>
                 </>
               ) : (
-                <Link to="/Login">Sign in</Link>
+                <Link to="/Login" onClick={closeMenu}>Sign in</Link>
               )}
             </div>
           </div>

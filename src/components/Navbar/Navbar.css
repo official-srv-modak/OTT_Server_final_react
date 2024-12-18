@@ -123,5 +123,8 @@
       text-align: center;
       padding: 10px 0;
     }
+    .navbar-menu li a:hover {
+      color: #00aaff;
+    }
   }
   
