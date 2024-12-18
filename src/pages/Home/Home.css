@@ -52,7 +52,7 @@
     gap: 10px;
     font-size: 15px;
     font-weight: 600;
-    background: #1798CD;
+    background: #00aaff;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -64,7 +64,7 @@
 
 .hero-btns .btn:hover {
     background-color: #000;
-    color: #1798CD;
+    color: #00aaff;
 }
 
 .hero-btns .btn.dark-btn:hover {
@@ -103,5 +103,17 @@
   
   .play-btn:hover {
     background-color: #d5006d;    /* Changes color on hover */
+  }
+
+  @media screen and (max-width: 768px) {
+    .banner-img {
+        margin-top: 10%; /* Remove margin or adjust as needed */
+        margin-left: 6%;
+        width: 80%;
+        height: auto;
+        mask-image: linear-gradient(to right, black, rgba(0, 0, 0, 0));
+        -webkit-mask-image: linear-gradient(to right, black, rgba(0, 0, 0, 0));
+    
+    }
   }
   

@@ -227,7 +227,7 @@ const Home = () => {
                 >
                   <img src={play_icon} alt="Play" />Play
                 </Link>
-                <button className='btn dark-btn'><img src={info_icon} alt="More Info" />More Info</button>
+                {/* <button className='btn dark-btn'><img src={info_icon} alt="More Info" />More Info</button> */}
               </div>
             </div>
           </>

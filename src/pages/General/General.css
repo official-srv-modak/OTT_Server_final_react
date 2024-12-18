@@ -1,4 +1,5 @@
 .new-page {
+    margin: 10% 10% 10% 10%;
     color: white;
     min-height: 100vh;
     display: flex;
@@ -13,8 +14,6 @@
     align-items: center;
     width: 100%;
     max-width: 100%;
-    padding: 80px; /* Add padding to avoid content hiding under the navbar */
-    margin: 80px; /* Ensure content is not hidden under the navbar */
 }
 
 .page-content h1{
@@ -131,5 +130,14 @@
 
     .general-result-description {
         font-size: 1rem; /* Adjust font size for mobile */
+    }
+    .new-page {
+        margin: 25% 10% 10% 10%;
+        color: white;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10%;
     }
 }

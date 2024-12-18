@@ -6,7 +6,7 @@
     justify-content: center; /* Center items vertically */
     align-items: center; /* Center items horizontally */
     position: relative; /* Ensure positioning context for absolute children */
-    margin: 3% 3% 0 3%; /* Center the player within the parent container */
+    margin: 10% 3% 0 3%; /* Center the player within the parent container */
 }
 
 .player img {

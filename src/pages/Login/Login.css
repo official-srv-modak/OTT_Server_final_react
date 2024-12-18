@@ -14,7 +14,7 @@
 .login-form{
     width: 100%;
     max-width: 450px;
-    background: #ff00008a;
+    background: #7a000089;
     border-radius: 4px;
     padding:60px;
     margin: auto;
@@ -48,7 +48,7 @@
     border:0;
     outline:0;
     padding:16px;
-    background:#1798CD;
+    background:#00aaff;
     color:#000;
     border-radius: 4px;
     font-size: 16px;

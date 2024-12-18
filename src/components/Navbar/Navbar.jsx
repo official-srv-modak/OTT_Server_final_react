@@ -123,8 +123,9 @@ const Navbar = ({ flag }) => {
 
       </div>
       <div className="navbar-right">
-        <img src={search_icon} alt="Search Icon" className='icons' onClick={() => handleTileClickSearch(profile)} />
-        {/* <p><ul>
+        {flag !== 1 && (
+          <img src={search_icon} alt="Search Icon" className='icons' onClick={() => handleTileClickSearch(profile)} />
+        )}{/* <p><ul>
           <li><Link to="/profiles">Profiles</Link></li>
         </ul></p> */}
         {/* <img src={bell_icon} alt="Notifications" className='icons' /> */}

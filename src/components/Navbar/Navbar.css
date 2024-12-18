@@ -6,7 +6,7 @@
     position: fixed;
     font-size: 14px;
     color: #e5e5e5;
-    background-image: linear-gradient(180deg, #ff000089 10%, #ff000089);
+    background-color: #7a000089;
     z-index: 1;
 }
 

@@ -5,7 +5,18 @@
   box-sizing: border-box;
 }
 body{
-  background-color: #080330;
+  background-color: #040020;
   color:#fff;
   font-family: 'poppins';
+}
+@media screen and (max-width: 768px) {
+  .hero {
+      margin: 25% 10% 10% 10%;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 10%;
+  }
 }

@@ -4,6 +4,7 @@ import back_arrow_icon from '../../assets/back_arrow_icon.png';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer'
 import CommentApp from '../../components/Comments/CommentApp';
+import Navbar from '../../components/Navbar/Navbar';
 
 const Player = () => {
     const location = useLocation();
@@ -25,6 +26,7 @@ const Player = () => {
 
     return (
         <>
+            <Navbar/>
             <div className='player'>
                 {/* Display the movie name and type in the top left */}
 
