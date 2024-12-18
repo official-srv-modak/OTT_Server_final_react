@@ -1,0 +1,85 @@
+.search-page {
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+    justify-self: center;
+    padding-top: 80px; /* Add padding to the top to offset the navbar height */
+    margin-top: 80px; /* Ensure content is not hidden under the navbar */
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 100%;
+}
+
+.search-result-tile {
+    padding: 1.5rem;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer; /* Add cursor pointer to indicate interactivity */
+    text-decoration: none; /* Ensure no underline by default */
+}
+
+.search-result-tile:hover {
+    transform: scale(1.05);
+    background-color: #157BB3; /* Darken background on hover */
+}
+
+.search-result-tile h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0; /* Remove margin to fit nicely inside the tile */
+    text-align: center;
+}
+
+.result-description {
+    font-size: 1rem;
+    text-align: center; /* Center the description */
+    margin: 0.5rem 0;
+    max-height: 80px; /* Optional: Limit description height for neatness */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Truncate long descriptions */
+}
+
+.search-result-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* Optional: Style the search-card links to make them look more interactive */
+.search-card {
+    text-decoration: none;
+    color: inherit; /* Inherit the color of the tile */
+}

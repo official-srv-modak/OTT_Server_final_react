@@ -1,0 +1,97 @@
+/* General Page Styling */
+.army-page {
+    background-color: #000000; /* Black background */
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px; /* Adjust for navbar */
+}
+
+/* Page Content Styling */
+.army-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 80px; /* Offset for navbar height */
+}
+
+/* Title Styling */
+.army-page-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #FFD700; /* Gold color for title */
+}
+
+/* Collage Container */
+.army-collage {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Individual Collage Tile */
+.army-collage-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4B5320; /* Army green */
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    text-decoration: none; /* Remove link underline */
+    color: white;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover Effect */
+.army-collage-tile:hover {
+    transform: scale(1.05); /* Slight zoom */
+    background-color: #556B2F; /* Highlighted army green */
+}
+
+/* Collage Image Styling */
+.army-collage-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle image shadow */
+}
+
+/* Description Styling */
+.army-result-description {
+    font-size: 1rem;
+    text-align: center;
+    margin: 0.5rem 0;
+    overflow: visible; /* Allow content expansion */
+    word-wrap: break-word; /* Handle long text without overflow */
+    white-space: normal; /* Ensure multiline text */
+    line-height: 1.5; /* Improve readability */
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .army-page-content {
+        padding: 1rem; /* Reduce padding for smaller screens */
+    }
+
+    .army-page-title {
+        font-size: 2rem; /* Adjust title size */
+    }
+
+    .army-collage-tile {
+        padding: 1rem; /* Reduce padding inside tiles */
+    }
+}

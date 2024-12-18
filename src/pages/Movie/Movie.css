@@ -1,0 +1,114 @@
+/* General Styling for the Movie Cards Page */
+.movie-cards {
+    margin-top: 12%; /* Adjust based on your navbar height */
+    margin-bottom: 30px;
+}
+
+.movie-cards h2 {
+    text-align: center;
+    background-color: #1798CD;
+    padding: 15px;
+    font-weight: 700;
+    font-size: 28px;
+    margin-top: 20%;
+    margin-bottom: 8px;
+}
+
+/* Styling for the Movie List */
+.movie-list {
+    margin-top: 20px; /* Adjust the space between the title and movie list */
+    display: flex;
+    margin: 20px;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;  /* Prevent vertical scrolling */
+}
+
+/* Hide the scrollbar but allow scrolling */
+.movie-list::-webkit-scrollbar {
+    display: none;
+}
+
+/* Styling for each movie card */
+.movie-list img {
+    height: 500px;
+    width: 320px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid #9CDAFA;
+}
+
+/* Styling for the movie card on hover */
+.movie-list .card {
+    position: relative;
+    transition: transform 0.3s;
+    margin: 8px;
+}
+
+.movie-list .card:hover {
+    transform: scale(1.05);
+}
+
+/* Overlay effect on hover */
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.movie-list .card p {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+}
+
+/* Overlay on hover */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
+/* Styling for content container, ensuring movie list starts below navbar */
+.content-container {
+    padding-top: 60px; /* Ensure this matches the height of your navbar */
+}
+
+/* Optional: Styling for loading and no data messages */
+.movie-list p {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+}
+
+/* Additional styling for the navbar, if it's fixed */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    color: white;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #1798CD;
+    color: white;
+}

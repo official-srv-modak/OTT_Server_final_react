@@ -1,0 +1,136 @@
+.new-page {
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 80px; /* Add padding to avoid content hiding under the navbar */
+    margin: 80px; /* Ensure content is not hidden under the navbar */
+}
+
+.page-content h1{
+    font-size: 2.5em;
+}
+
+.features-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; /* Gap between each feature card */
+}
+
+.general-result-tile-wrapper {
+    width: 90%;
+    max-width: 1200px; /* Control the max width for the card */
+    margin-bottom: 2rem;
+    text-align: center; /* Center the title */
+}
+
+.general-result-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1rem; /* Space between title and tile */
+    text-transform: uppercase; /* Optional: Style the title */
+}
+
+.general-result-tile {
+    background-color: rgba(23, 153, 205, 0); /* Transparent background with a blue tint */
+    padding: 2rem;
+    border-radius: 12px; /* Rounded corners for a card-like appearance */
+    color: white;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row; /* Keep image on the left and text on the right */
+    align-items: center; /* Vertically align the content */
+    gap: 1.5rem; /* Space between image and description */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer; /* Add cursor pointer to indicate interactivity */
+    text-decoration: none; /* Ensure no underline by default */
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional shadow for a card-like effect */
+    margin: 0 auto; /* Center the cards */
+}
+
+.general-result-tile:hover {
+    transform: scale(1.05);
+    background-color: rgb(21, 124, 179); /* Darken background on hover */
+}
+
+.general-result-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+    width: 100%; /* Make sure it takes the full width */
+}
+
+.general-result-description {
+    font-size: 1.2rem; /* Increase font size for better readability */
+    text-align: left;
+    margin: 0.5rem 0;
+    height: auto; /* Allow the description to grow with content */
+    overflow: visible; /* Ensure the full description is visible */
+    word-wrap: break-word; /* Ensure long words are wrapped */
+    line-height: 1.5; /* Increase line height for readability */
+}
+
+.general-result-image {
+    width: 500px;  /* Fixed width */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    flex-shrink: 0; /* Prevent image from shrinking */
+    max-width: 100%; /* Allow image to scale down if container is smaller */
+    object-fit: cover; /* Ensure image covers its container without distortion */
+}
+
+
+.card {
+    text-decoration: none;
+    color: inherit; /* Inherit the color of the tile */
+}
+
+.product-details {
+    margin-top: 2rem;
+    font-size: 1rem;
+}
+
+.product-details p {
+    margin: 0.5rem 0;
+}
+
+@media screen and (max-width: 768px) {
+    .general-result-tile-wrapper {
+        max-width: 100%;
+    }
+
+    .general-result-title {
+        font-size: 1.5rem;
+    }
+
+    .general-result-tile {
+        max-width: 100%;
+        padding: 1rem;
+        flex-direction: column; /* Stack image and text vertically on smaller screens */
+        align-items: center; /* Center the content */
+    }
+
+    .general-result-image {
+        width: 150px; /* Adjust image size for mobile */
+    }
+
+    .general-result-description {
+        font-size: 1rem; /* Adjust font size for mobile */
+    }
+}

@@ -1,0 +1,107 @@
+.hero {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    align-items: flex-start; /* Align items at the top */
+    position: relative;
+}
+
+.banner-img {
+    margin-top: 10%; /* Remove margin or adjust as needed */
+    margin-left: 6%;
+    width: 30%;
+    height: auto;
+    mask-image: linear-gradient(to right, black, rgba(0, 0, 0, 0));
+    -webkit-mask-image: linear-gradient(to right, black, rgba(0, 0, 0, 0));
+
+}
+
+.hero-caption {
+    width: 80%; /* Adjust width to take up more space on the left */
+    padding-left: 6%;
+    margin-top: 15%; /* Remove margin or adjust as needed */
+}
+
+.hero-caption h2 {
+    width: 90%;
+    max-width: 420px;
+    margin-bottom: 30px;
+}
+
+.hero-caption p {
+    max-width: 700px;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+.hero-btns .btn img {
+    width: 20px;
+}
+
+.hero-btns .btn {
+    border: 0;
+    outline: 0;
+    padding: 8px 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    background: #1798CD;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.hero-btns .btn.dark-btn {
+    color: #fff;
+    background: #6d6d6eb3;
+}
+
+.hero-btns .btn:hover {
+    background-color: #000;
+    color: #1798CD;
+}
+
+.hero-btns .btn.dark-btn:hover {
+    background-color: #6d6d6e66;
+}
+
+.more-cards {
+    padding: 6%;
+}
+
+
+/* Home.css */
+.play-btn {
+    display: inline-flex;          /* Aligns the image and text */
+    align-items: center;          /* Centers the content vertically */
+    padding: 10px 20px;          /* Adds padding for the button */
+    background-color: #ff4081;   /* Example button background color */
+    color: white;                 /* Button text color */
+    border: none;                 /* Removes border */
+    border-radius: 5px;          /* Adds rounded corners */
+    text-decoration: none;        /* Removes underline from the link */
+    cursor: pointer;              /* Changes cursor to pointer */
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Remove focus outline */
+  .play-btn:focus {
+    outline: none;                /* Removes default outline */
+  }
+  
+  /* Remove underline and color change when clicked */
+  .play-btn:active {
+    text-decoration: none;        /* Ensures no underline on click */
+    color: white;                 /* Keep text color consistent */
+  }
+  
+  .play-btn:hover {
+    background-color: #d5006d;    /* Changes color on hover */
+  }
+  

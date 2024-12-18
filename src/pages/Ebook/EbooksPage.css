@@ -1,0 +1,133 @@
+/* Page Styling */
+.ebooks-page {
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.ebook-page-content {
+    padding: 2rem 1rem; /* Adjust padding for all sides */
+    margin-top: 80px; /* Ensure content is not hidden under the navbar */
+    width: 100%;
+    max-width: 1200px;
+    display: block;  /* Use block to avoid flex conflicts with grid */
+    gap: 2rem;
+}
+
+/* Categories Grid */
+.ebook-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Ensures grid items are placed side by side */
+    gap: 2rem;
+    width: 100%;
+    justify-items: center; /* Centers the items in each grid cell */
+}
+
+/* Subfolder Card */
+.ebook-subfolder-card {
+    width: 100%;
+    padding: 1.5rem;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;  /* Prevent overflow of text */
+    height: auto; /* Allow height to adjust based on content */
+}
+
+/* Subfolder Grid */
+.ebook-subfolders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Horizontal grid for subfolders */
+    gap: 0.5rem;
+    width: 100%;
+    justify-items: center; /* Center the items in each grid */
+}
+
+/* File Card */
+.ebook-file-card {
+    padding: 1rem;
+    border: 1px solid #1798CD;
+    border-radius: 8px;
+    background-color: #1798CD;
+    color: white;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;  /* Prevent overflow of text */
+    height: auto; /* Allow height to adjust based on content */
+    margin-bottom: 1.5rem; /* Add vertical margin between file cards */
+}
+
+/* Prevent text overflow */
+.ebook-file-card p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    margin: 0; /* Optional to remove extra space */
+}
+
+
+/* Hover effect for file cards */
+.ebook-file-card:hover {
+    transform: scale(1.05);
+    background-color: #157BB3;
+}
+
+/* Hover effect for subfolder cards */
+.ebook-subfolder-card:hover {
+    transform: scale(1.05);
+    background-color: #555;
+}
+
+/* General Styling */
+.folder {
+    margin: 0.5rem 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+    /* Adjust for smaller screens */
+    .ebook-categories-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Adjust for smaller screens */
+        gap: 1rem;
+    }
+
+    .ebook-file-card, .ebook-subfolder-card {
+        padding: 1rem;
+        font-size: 14px; /* Adjust text size for mobile */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Further adjustments for very small screens (phones in portrait mode) */
+    .ebook-categories-grid {
+        grid-template-columns: 1fr; /* Stacks file cards */
+        gap: 0.6rem;
+    }
+
+    .ebook-file-card, .ebook-subfolder-card {
+        padding: 0.8rem; /* Smaller padding for small screens */
+    }
+}
