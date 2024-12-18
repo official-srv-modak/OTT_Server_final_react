@@ -12,6 +12,7 @@ import General from './pages/General/General'
 import NavyPage from './pages/NavyPage/NavyPage'
 import ArmyPage from './pages/ArmyPage/ArmyPage'
 import AirForcePage from './pages/AirForcePage/AirForcePage'
+import ExamPage from './pages/ExamPage/ExamPage'
 import CustomVideoPlayer from './components/CustomVideoPlayer/CustomVideoPlayer'
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/navy" element={<NavyPage />} />
         <Route path="/army" element={<ArmyPage />} />
         <Route path="/airforce" element={<AirForcePage />} />
+        <Route path="/exam" element={<ExamPage />} />
       </Routes>
     </div>
   )

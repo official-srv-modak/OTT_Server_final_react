@@ -73,18 +73,20 @@ const Navbar = ({ flag }) => {
       <div className="navbar-container">
         <div className="navbar-left">
           <img src={logo} alt="Logo" className="navbar-logo" />
+          {flag !== 1 && (
           <button className="hamburger" onClick={toggleMenu}>
             <span className="bar"></span>
             <span className="bar"></span>
             <span className="bar"></span>
           </button>
+          )}
         </div>
         <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           {flag !== 1 && (
             <>
               <li><Link to="/general" onClick={closeMenu}>Home</Link></li>
               <li><Link to="/" onClick={closeMenu}>OTT Server</Link></li>
-              <li><Link to="/movies" onClick={closeMenu}>Movies</Link></li>
+              {/* <li><Link to="/movies" onClick={closeMenu}>Movies</Link></li> */}
               <li><Link to="/navy" onClick={closeMenu}>Navy</Link></li>
               <li><Link to="/army" onClick={closeMenu}>Army</Link></li>
               <li><Link to="/airforce" onClick={closeMenu}>Air Force</Link></li>
@@ -106,7 +108,7 @@ const Navbar = ({ flag }) => {
             <div className="dropdown">
               {username ? (
                 <>
-                  <span>{username}</span>
+                  <span>{username}</span><br/>
                   <button onClick={signOut}>Sign Out</button>
                 </>
               ) : (
