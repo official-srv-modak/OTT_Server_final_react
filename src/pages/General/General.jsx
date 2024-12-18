@@ -52,6 +52,7 @@ const General = () => {
 
     // Simulating data fetching
     useEffect(() => {
+        window.scrollTo(0, 0);
         setProduct(productData.product); // In a real scenario, fetch the data from an API
     }, []);
 

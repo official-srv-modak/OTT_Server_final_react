@@ -16,6 +16,7 @@ const Player = () => {
     const videoStreamUrl = import.meta.env.VITE_SPRING_VIDEO_STREAM_URL;
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         if (videoStreamUrl && location.state && location.state.id) {
             // Set the video URL only if both videoStreamUrl and id are available
             setVideoUrl(videoStreamUrl + '/' + location.state.id + '?resolution=auto');
