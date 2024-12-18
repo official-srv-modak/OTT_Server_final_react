@@ -1,7 +1,7 @@
 .login {
     height: 100%;
-    background-image: 
-        url("../../assets/banner2.jpg");
+    /* background-image: 
+        url("../../assets/banner2.jpg"); */
     background-size: cover;
     background-position: center;
     padding: 20px 8%;
@@ -14,10 +14,11 @@
 .login-form{
     width: 100%;
     max-width: 450px;
-    background: rgba(0,0,0,0.75);
+    background: #ff00008a;
     border-radius: 4px;
     padding:60px;
-    margin:auto;
+    margin: auto;
+    margin-top:10%;
     box-shadow:#b5b5b5;
 }
 .login-form h1{

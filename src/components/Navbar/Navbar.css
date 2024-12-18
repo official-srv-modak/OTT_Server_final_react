@@ -6,7 +6,7 @@
     position: fixed;
     font-size: 14px;
     color: #e5e5e5;
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 10%, black);
+    background-image: linear-gradient(180deg, #ff000089 10%, #ff000089);
     z-index: 1;
 }
 
@@ -33,11 +33,11 @@
 }
 
 .navbar-left a:hover {
-    color: #9CDAFA;
+    color: #00aaff;
 }
 
 .navbar-left ul li:hover {
-    color: #9CDAFA;
+    color: #00aaff;
 }
 
 .navbar-left ul li {
@@ -74,11 +74,11 @@
 }
 
 .navbar-right a:hover {
-    color: #9CDAFA;
+    color: #00aaff;
 }
 
 .navbar-right ul li:hover {
-    color: #9CDAFA;
+    color: #00aaff;
 }
 
 .navbar-right ul li {
@@ -149,5 +149,5 @@
 
 .dropdown-content a:hover {
     background-color: #282828;
-    color: #9CDAFA;
+    color: #00aaff;
 }

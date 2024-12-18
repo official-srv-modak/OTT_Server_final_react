@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Login.css';
-import logo from '../../assets/BSLogo_transparent.png';
+import logo from '../../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import Navbar from '../../components/Navbar/Navbar';
 
 const Login = () => {
   const [signState, setSignState] = useState("Sign In");
@@ -126,7 +127,8 @@ const Login = () => {
 
   return (
     <div className='login'>
-      <img src={logo} className='login-logo' alt="" />
+      {/* <img src={logo} className='login-logo' alt="" /> */}
+      <Navbar flag={1}/>
       <div className="login-form">
         <h1>{signState}</h1>
         <form onSubmit={handleSubmit}>

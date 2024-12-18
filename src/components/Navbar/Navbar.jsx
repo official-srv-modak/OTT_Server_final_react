@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Navbar.css';
-import logo from '../../assets/BSLogo_transparent.png';
+import logo from '../../assets/logo.png';
 import search_icon from '../../assets/search_icon.svg';
 import bell_icon from '../../assets/bell_icon.png';
 import profile_icon from '../../assets/profile_icon.png';
@@ -8,7 +8,7 @@ import caret_icon from '../../assets/caret_icon.png';
 import { Link } from 'react-router-dom';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ flag }) => {
   const [username, setUsername] = useState("");
   const authUrl = import.meta.env.VITE_SPRING_AUTH_URL;
   const signOutUrl = import.meta.env.VITE_SPRING_SIGN_OUT_URL;
@@ -98,10 +98,9 @@ const Navbar = () => {
       <div className="navbar-left">
         <img src={logo} alt="Logo" />
         <ul>
-          <li><Link to="/general">Home</Link></li>
-          <li className="dropdown-menu">
-            Categories
-            <div className="dropdown-content">
+          {flag !== 1 && (
+            <>
+              <li><Link to="/general">Home</Link></li>
               <Link to="/">OTT Server</Link>
               <Link to="/movies">Movies</Link>
               <Link to="/navy">Navy</Link>
@@ -112,8 +111,14 @@ const Navbar = () => {
               <Link to="/ebooks">Ebooks</Link>
               <Link to="/exam">Exam</Link>
               <Link to="/categories/misc">Misc</Link>
-            </div>
-          </li>
+              {/* <li className="dropdown-menu">
+                Categories
+                <div className="dropdown-content">
+
+                </div>
+              </li> */}
+            </>
+          )}
         </ul>
 
       </div>

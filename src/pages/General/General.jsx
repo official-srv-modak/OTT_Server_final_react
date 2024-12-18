@@ -7,17 +7,17 @@ import Footer from '../../components/Footer/Footer';
 // Sample JSON data
 const productData = {
     "product": {
-        "name": "NavStream",
-        "description": "NavStream is an OTT platform developed exclusively for the Indian Armed Forces. It provides access to course materials, videos, ebooks, live events, and general information about the Indian Armed Forces.",
+        "name": "NCC Eduforce",
+        "description": "NCC Eduforce is an OTT platform developed exclusively for the Indian Armed Forces. It provides access to course materials, videos, ebooks, live events, and general information about the Indian Armed Forces.",
         "features": [
             {
                 "title": "OTT Server for Indian Armed Forces",
-                "description": "NavStream is designed to serve as an OTT server exclusively for the Indian Armed Forces, providing secure and private access to essential resources.",
+                "description": "NCC Eduforce is designed to serve as an OTT server exclusively for the Indian Armed Forces, providing secure and private access to essential resources.",
                 "image": "http://localhost/sample_images/image1.webp"
             },
             {
                 "title": "Intranet Only Usage",
-                "description": "NavStream is intended to be used over an intranet network only, ensuring high security and controlled access within the Armed Forces.",
+                "description": "NCC Eduforce is intended to be used over an intranet network only, ensuring high security and controlled access within the Armed Forces.",
                 "image": "http://localhost/sample_images/image2.jpg"
             },
             {
@@ -27,7 +27,7 @@ const productData = {
             },
             {
                 "title": "Ebooks and Learning Resources",
-                "description": "NavStream provides a collection of ebooks and other digital learning resources for the Indian Armed Forces personnel.",
+                "description": "NCC Eduforce provides a collection of ebooks and other digital learning resources for the Indian Armed Forces personnel.",
                 "image": "http://localhost/sample_images/image4.jpg"
             },
             {
@@ -37,7 +37,7 @@ const productData = {
             },
             {
                 "title": "General Information about the Indian Armed Forces",
-                "description": "NavStream hosts general information about the Indian Armed Forces, including details about the Navy, Army, and Air Force, along with their course materials and any important notices.",
+                "description": "NCC Eduforce hosts general information about the Indian Armed Forces, including details about the Navy, Army, and Air Force, along with their course materials and any important notices.",
                 "image": "http://localhost/sample_images/image6.svg"
             }
         ],
