@@ -64,8 +64,8 @@ const General = () => {
     return (
         <div className="new-page">
             <Navbar />
-            <img src={logo} alt="Logo" className="navbar-logo-mobile" />
             <div className="page-content">
+                <img src={logo} alt="Logo" className="navbar-logo-mobile" />
                 <h1>{product.name}</h1>
                 <p>{product.description}</p>
                 <br></br>

@@ -78,8 +78,9 @@ const Login = () => {
       }, {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`,
+          'Authorization': `${apiKey}`
         },
+        credentials: 'include' // Include cookies in the request
       });
 
       console.log('Response from login:', response.data);
