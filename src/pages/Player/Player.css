@@ -1,6 +1,6 @@
 .player {
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: auto;
     /* max-width: 800px; Set a maximum width for larger screens */
     display: flex;
     flex-direction: column;
@@ -10,7 +10,8 @@
     /* Center items horizontally */
     position: relative;
     /* Ensure positioning context for absolute children */
-    margin: 10% 3% 0 3%;
+    margin: 10% 0% 0% 0%;
+    /* margin: 10% 3% 0 3%; */
     /* Center the player within the parent container */
 }
 
@@ -23,7 +24,7 @@
 }
 
 .player iframe {
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 .player-info {
@@ -67,8 +68,9 @@
     width: 100%;
     /* Ensure video fits within container */
     height: auto;
+    margin: 10dp;
     /* Maintain aspect ratio */
-    border-radius: 10px;
+    /* border-radius: 10px; */
     /* Optional: rounding the video corners */
 }
 
@@ -88,18 +90,17 @@
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
     .player {
-        width: 90%;
-        height: 90%;
         /* max-width: 800px; Set a maximum width for larger screens */
         display: flex;
+        height: 90%;
         flex-direction: column;
         justify-content: center;
         /* Center items vertically */
         align-items: center;
         /* Center items horizontally */
         position: relative;
+        margin: 30% 0% 10% 0%;
         /* Ensure positioning context for absolute children */
-        margin: 30% 3% 3% 3%;
         /* Center the player within the parent container */
     }
 

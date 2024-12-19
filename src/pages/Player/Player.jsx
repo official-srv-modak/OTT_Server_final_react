@@ -13,24 +13,30 @@ const Player = () => {
     const [videoUrl, setVideoUrl] = useState("");
     const [currentTime, setCurrentTime] = useState(0); // Track the current time of the video
     const [duration, setDuration] = useState(0); // Track video duration
+    const [isLeaving, setIsLeaving] = useState(false); // State to control multiple calls
 
     // Ensure VITE_SPRING_VIDEO_STREAM_URL is correctly set in your environment variables
+    // const videoStreamUrl = import.meta.env.VITE_SPRING_VIDEO_STREAM_URL_V2;
     const videoStreamUrl = import.meta.env.VITE_SPRING_VIDEO_STREAM_URL;
     const recPosUrl = import.meta.env.VITE_RECORD_POSITION;
+    const vidId = location.state?.id;
 
     useEffect(() => {
-        //window.scrollTo(0, 0);
-        if (videoStreamUrl && location.state && location.state.id) {
-            // Set the video URL only if both videoStreamUrl and id are available
+        // Prevent page reload handling
+        
+        if (videoStreamUrl && location.state && location.state.id && !videoUrl) {
+            window.scrollTo(0, 0);
             setVideoUrl(`${videoStreamUrl}/${location.state.id}?resolution=auto&start=${location.state.pos || 0}`);
+            // setVideoUrl(`${videoStreamUrl}/${location.state.id}?resolution=720p&start=${location.state.pos || 0}`);
         } else {
             console.error("No video URL or ID provided");
         }
 
         const handleUnload = () => {
-            if (currentTime > 0 && duration > 0) {
+            if (!isLeaving && currentTime > 0 && duration > 0) {
+                setIsLeaving(true); // Prevent multiple API calls
                 const storedUser = localStorage.getItem("user");
-                let username = ""
+                let username = "";
                 if (storedUser) {
                     let parsedUser = JSON.parse(storedUser); // Parse the JSON string
                     username = parsedUser.username;
@@ -52,10 +58,9 @@ const Player = () => {
         window.addEventListener("beforeunload", handleUnload);
         return () => {
             // Cleanup
-            handleUnload();
             window.removeEventListener("beforeunload", handleUnload);
         };
-    }, [videoStreamUrl, location, currentTime, duration]);
+    }, [videoStreamUrl, location, currentTime, duration, isLeaving]);
 
     const handleTimeUpdate = (e) => {
         setCurrentTime(e.target.currentTime);
@@ -70,7 +75,6 @@ const Player = () => {
             <Navbar />
             <div className='player'>
                 {/* Display the movie name and type in the top left */}
-
                 {videoUrl ? (
                     <video
                         key={videoUrl}  // Force re-render when videoUrl changes
@@ -92,7 +96,12 @@ const Player = () => {
                     <p className='b'>{location.state ? location.state.name : "Movie"}</p>
                 </div>
             </div>
-            <CommentApp postId={location.state?.id} />
+            {videoStreamUrl?(
+                <CommentApp postId={vidId} />
+            ):(
+                <p>Loading comments...</p>
+            )};
+            
             <Footer />
         </>
     );

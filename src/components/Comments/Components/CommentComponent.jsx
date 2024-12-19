@@ -61,21 +61,21 @@ const CommentComponent = ({ id, postId, author, createdtime, text }) => {
   };
 
   const avatarUrls = [
-    "https://robohash.org/1?set=set5&size=50x50",
+    // "https://robohash.org/1?set=set5&size=50x50"
     "https://robohash.org/2?set=set5&size=50x50",
-    "https://robohash.org/3?set=set5&size=50x50",
-    "https://robohash.org/4?set=set5&size=50x50",
-    "https://robohash.org/5?set=set5&size=50x50",
-    "https://robohash.org/6?set=set5&size=50x50",
-    "https://robohash.org/7?set=set5&size=50x50",
-    "https://robohash.org/8?set=set5&size=50x50",
-    "https://robohash.org/9?set=set5&size=50x50",
-    "https://robohash.org/10?set=set5&size=50x50",
-    "https://robohash.org/11?set=set5&size=50x50",
-    "https://robohash.org/12?set=set5&size=50x50",
-    "https://robohash.org/13?set=set5&size=50x50",
-    "https://robohash.org/14?set=set5&size=50x50",
-    "https://robohash.org/15?set=set5&size=50x50"
+    // "https://robohash.org/3?set=set5&size=50x50",
+    // "https://robohash.org/4?set=set5&size=50x50",
+    // "https://robohash.org/5?set=set5&size=50x50",
+    // "https://robohash.org/6?set=set5&size=50x50",
+    // "https://robohash.org/7?set=set5&size=50x50",
+    // "https://robohash.org/8?set=set5&size=50x50",
+    // "https://robohash.org/9?set=set5&size=50x50",
+    // "https://robohash.org/10?set=set5&size=50x50",
+    // "https://robohash.org/11?set=set5&size=50x50",
+    // "https://robohash.org/12?set=set5&size=50x50",
+    // "https://robohash.org/13?set=set5&size=50x50",
+    // "https://robohash.org/14?set=set5&size=50x50",
+    // "https://robohash.org/15?set=set5&size=50x50"
 ];
 
 
