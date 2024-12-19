@@ -102,7 +102,7 @@ const Player = () => {
                 <CommentApp postId={vidId} />
             ) : (
                 <p>Loading comments...</p>
-            )};
+            )}
 
             <Footer />
         </>
