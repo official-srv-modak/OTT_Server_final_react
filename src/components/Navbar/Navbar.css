@@ -25,6 +25,10 @@
   .navbar-logo {
     width: 100px;
   }
+
+  .navbar-logo-mobile {
+    display: none;
+  }
   
   .hamburger {
     display: none;
@@ -126,6 +130,14 @@
     }
     .navbar-menu li a:hover {
       color: #00aaff;
+    }
+    .navbar-logo {
+      display: none;
+    }
+    .navbar-logo-mobile{
+      display: flex;
+      align-self: center;
+      width: 100px;
     }
   }
   

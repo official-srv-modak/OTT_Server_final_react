@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import './EbooksPage.css';
+import logo from '../../assets/logo.png';
+
 
 const EbooksPage = () => {
     const [data, setData] = useState(null);
@@ -70,6 +72,7 @@ const EbooksPage = () => {
                     <p>Loading...</p>
                 ) : (
                     <div className="ebook-categories-grid">
+                        <img src={logo} alt="Logo" className="navbar-logo-mobile" />
                         {data?.subfolders?.map((folder, index) => (
                             <div key={index}>
                                 {renderFolders(folder)}

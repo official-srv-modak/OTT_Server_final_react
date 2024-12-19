@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'; // Link for navigation
 import './ArmyPage.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import logo from '../../assets/logo.png';
+
 
 const armyImages = [
   {
@@ -36,6 +38,7 @@ const ArmyPage = () => {
     <div className="army-page">
       <Navbar />
       <div className="army-page-content">
+        <img src={logo} alt="Logo" className="navbar-logo-mobile" />
         <h1 className="army-page-title">Indian Army - Defenders of the Land</h1>
         <div className="army-collage">
           {armyImages.map((image) => (

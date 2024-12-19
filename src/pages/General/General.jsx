@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Import Link
 import './General.css';
+import logo from '../../assets/logo.png';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 
@@ -63,6 +64,7 @@ const General = () => {
     return (
         <div className="new-page">
             <Navbar />
+            <img src={logo} alt="Logo" className="navbar-logo-mobile" />
             <div className="page-content">
                 <h1>{product.name}</h1>
                 <p>{product.description}</p>

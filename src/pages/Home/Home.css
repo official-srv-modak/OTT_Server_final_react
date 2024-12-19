@@ -8,6 +8,14 @@
     position: relative;
 }
 
+.hero-caption-web {
+    display: flex;
+}
+
+.hero-caption-mobile {
+    display: none;
+}
+
 .banner-img {
     margin-top: 10%;
     /* Remove margin or adjust as needed */
@@ -127,10 +135,28 @@
 
 @media screen and (max-width: 768px) {
     .banner-img {
-        margin: 10% 2% 2% 2%;
         /* Remove margin or adjust as needed */
+        margin-top: 10%;
         width: 90%;
         height: auto;
         mask-image: none;
+        margin-left: 0%;
+    }
+
+    .navbar-logo {
+        display: none;
+    }
+
+    .navbar-logo-mobile {
+        display: flex;
+        width: 100px;
+    }
+
+    .hero-caption-web {
+        display: none;
+    }
+
+    .hero-caption-mobile {
+        display: flex;
     }
 }

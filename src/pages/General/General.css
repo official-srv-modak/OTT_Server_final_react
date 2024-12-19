@@ -1,5 +1,5 @@
 .new-page {
-    margin: 10% 10% 10% 10%;
+    margin: 20% 10% 10% 10%;
     color: white;
     min-height: 100vh;
     display: flex;
@@ -132,7 +132,6 @@
         font-size: 1rem; /* Adjust font size for mobile */
     }
     .new-page {
-        margin: 25% 10% 10% 10%;
         color: white;
         min-height: 100vh;
         display: flex;
@@ -149,4 +148,7 @@
         max-width: 100%; /* Allow image to scale down if container is smaller */
         object-fit: cover; /* Ensure image covers its container without distortion */
     }    
+    .page-content{
+        margin-top: 10%;
+    }
 }

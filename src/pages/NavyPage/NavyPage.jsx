@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'; // Link for navigation
 import './NavyPage.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import logo from '../../assets/logo.png';
+
 
 const navyImages = [
   {
@@ -36,10 +38,11 @@ const NavyPage = () => {
     <div className="navy-page">
       <Navbar />
       <div className="navy-page-content">
+        <img src={logo} alt="Logo" className="navbar-logo-mobile" />
         <h1 className="navy-page-title">Indian Navy - Guardians of the Sea</h1>
         <div className="navy-collage">
           {navyImages.map((image) => (
-                        // <Link key={image.id} to={`/navy/${image.id}`} className="navy-collage-tile">
+            // <Link key={image.id} to={`/navy/${image.id}`} className="navy-collage-tile">
 
             <Link key={image.id} className="navy-collage-tile">
               <img src={image.url} alt={image.title} className="navy-collage-image" />

@@ -7,6 +7,8 @@ import TitleCards from '../../components/TitleCards/TitleCards';
 import Footer from '../../components/Footer/Footer';
 import ResumeTitleCards from '../../components/ResumeTitleCards/ResumeTitleCards';
 import { Link, useNavigate } from 'react-router-dom';
+import logo from '../../assets/logo.png';
+
 
 const Home = () => {
   const [movieData, setMovieData] = useState(null);
@@ -211,9 +213,11 @@ const Home = () => {
           <p>Loading...</p>
         ) : movieData ? (
           <>
+            <img src={logo} alt="Logo" className="navbar-logo-mobile" />
+            <h2 className="hero-caption-mobile">{movieData.name}</h2>
             <img src={movieData.album_art_path} alt={movieData.name} className='banner-img' />
             <div className="hero-caption">
-              <h2>{movieData.name}</h2>
+              <h2 className="hero-caption-web">{movieData.name}</h2>
               <p dangerouslySetInnerHTML={{ __html: movieData.des.replace(/\n/g, '<br />') }} />
               <div className="hero-btns">
                 <Link

@@ -5,6 +5,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import CommentApp from '../../components/Comments/CommentApp';
 import Navbar from '../../components/Navbar/Navbar';
+import logo from '../../assets/logo.png';
+
 
 const Player = () => {
     const location = useLocation();
@@ -23,7 +25,7 @@ const Player = () => {
 
     useEffect(() => {
         // Prevent page reload handling
-        
+
         if (videoStreamUrl && location.state && location.state.id && !videoUrl) {
             window.scrollTo(0, 0);
             setVideoUrl(`${videoStreamUrl}/${location.state.id}?resolution=auto&start=${location.state.pos || 0}`);
@@ -96,12 +98,12 @@ const Player = () => {
                     <p className='b'>{location.state ? location.state.name : "Movie"}</p>
                 </div>
             </div>
-            {videoStreamUrl?(
+            {videoStreamUrl ? (
                 <CommentApp postId={vidId} />
-            ):(
+            ) : (
                 <p>Loading comments...</p>
             )};
-            
+
             <Footer />
         </>
     );

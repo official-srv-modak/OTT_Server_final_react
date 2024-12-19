@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'; // Link for navigation
 import './ExamPage.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import logo from '../../assets/logo.png';
 
 const examImages = [
 
@@ -33,6 +34,7 @@ const ExamPage = () => {
     <div className="exam-page">
       <Navbar />
       <div className="exam-page-content">
+        <img src={logo} alt="Logo" className="navbar-logo-mobile" />
         <h1 className="exam-page-title">NCC Certification exam</h1>
         <div className="exam-collage">
           {examImages.map((image) => (
