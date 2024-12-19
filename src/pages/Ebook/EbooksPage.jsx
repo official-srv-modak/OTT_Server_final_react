@@ -27,10 +27,8 @@ const EbooksPage = () => {
             });
     }, []);
 
-    // Function to handle file opening
     const openFile = (url) => {
         console.log(`Opening file from URL: ${url}`);
-        // Open the file in a new tab
         window.open(url, '_blank', 'noopener,noreferrer');
     };
 
@@ -39,7 +37,7 @@ const EbooksPage = () => {
             <div
                 key={fileIndex}
                 className="ebook-file-card"
-                onClick={() => openFile(`${ebookById}${file.id}`)} // Pass the file path
+                onClick={() => openFile(`${ebookById}${file.id}`)}
             >
                 <p>{file.name}</p>
             </div>
@@ -50,14 +48,12 @@ const EbooksPage = () => {
         return (
             <div className="ebook-subfolder-card">
                 <h3>{folder.folderName}</h3>
-                {/* Render files */}
                 {renderFiles(folder.files)}
-                {/* Recursively render subfolders */}
                 {folder.subfolders && folder.subfolders.length > 0 && (
                     <div className="ebook-subfolders-grid">
                         {folder.subfolders.map((subfolder, index) => (
                             <div key={index}>
-                                {renderFolders(subfolder)}  {/* Recursive call for subfolder */}
+                                {renderFolders(subfolder)}
                             </div>
                         ))}
                     </div>
@@ -76,7 +72,7 @@ const EbooksPage = () => {
                     <div className="ebook-categories-grid">
                         {data?.subfolders?.map((folder, index) => (
                             <div key={index}>
-                                {renderFolders(folder)}  {/* Rendering folder and subfolders */}
+                                {renderFolders(folder)}
                             </div>
                         ))}
                     </div>

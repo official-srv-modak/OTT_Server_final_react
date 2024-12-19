@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const baseCommentURL = import.meta.env.VITE_SPRING_COMMENT_BASE_URL;
+
 const api=axios.create({
-    baseURL: 'http://localhost:8087/api',
+    baseURL: baseCommentURL
 });
 
 export const fetchComments=()=>api.get('/comments/admin/all');

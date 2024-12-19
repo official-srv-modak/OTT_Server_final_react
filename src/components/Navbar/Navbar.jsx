@@ -13,6 +13,7 @@ const Navbar = ({ flag }) => {
 
   const authUrl = import.meta.env.VITE_SPRING_AUTH_URL;
   const signOutUrl = import.meta.env.VITE_SPRING_SIGN_OUT_URL;
+  const apiKey = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
     const handleAuthentication = async () => {
@@ -20,7 +21,7 @@ const Navbar = ({ flag }) => {
       try {
         const response = await fetch(authUrl, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', Authorization: apiKey },
           body: JSON.stringify({ token }),
         });
         const data = await response.json();
@@ -44,7 +45,7 @@ const Navbar = ({ flag }) => {
     try {
       const response = await fetch(signOutUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Authorization: apiKey },
         body: JSON.stringify({ token }),
       });
       if (response.ok) {
@@ -85,7 +86,7 @@ const Navbar = ({ flag }) => {
           {flag !== 1 && (
             <>
               <li><Link to="/general" onClick={closeMenu}>Home</Link></li>
-              <li><Link to="/" onClick={closeMenu}>OTT Server</Link></li>
+              <li><Link to="/" onClick={closeMenu}>Study</Link></li>
               {/* <li><Link to="/movies" onClick={closeMenu}>Movies</Link></li> */}
               <li><Link to="/navy" onClick={closeMenu}>Navy</Link></li>
               <li><Link to="/army" onClick={closeMenu}>Army</Link></li>
