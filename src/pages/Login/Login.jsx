@@ -100,7 +100,7 @@ const Login = () => {
   const authenticate = async () => {
     try {
       const token = localStorage.getItem("authToken");
-      const response = await fetch('http://localhost:8081/modakflix-auth/user/authenticate', {
+      const response = await fetch(authUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: apiKey },
         body: JSON.stringify({ token })
