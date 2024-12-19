@@ -16,12 +16,13 @@ const Player = () => {
 
     // Ensure VITE_SPRING_VIDEO_STREAM_URL is correctly set in your environment variables
     const videoStreamUrl = import.meta.env.VITE_SPRING_VIDEO_STREAM_URL;
+    const recPosUrl = import.meta.env.VITE_RECORD_POSITION;
 
     useEffect(() => {
         //window.scrollTo(0, 0);
         if (videoStreamUrl && location.state && location.state.id) {
             // Set the video URL only if both videoStreamUrl and id are available
-            setVideoUrl(videoStreamUrl + '/' + location.state.id + '?resolution=auto');
+            setVideoUrl(`${videoStreamUrl}/${location.state.id}?resolution=auto&start=${location.state.pos || 0}`);
         } else {
             console.error("No video URL or ID provided");
         }
@@ -35,7 +36,7 @@ const Player = () => {
                     username = parsedUser.username;
                 }
                 // Replace this fetch call with axios or another library if preferred
-                fetch(`http://localhost/record_position.php?username=${username}&show=${encodeURIComponent(location.state?.id)}&pos=${currentTime}&duration=${duration}&cause=user&name=${encodeURIComponent(location.state?.name)}&id=${location.state?.id}`, {
+                fetch(`${recPosUrl}${username}&show=${encodeURIComponent(location.state?.id)}&pos=${currentTime}&duration=${duration}&cause=user&name=${encodeURIComponent(location.state?.name)}&id=${location.state?.id}`, {
                     method: 'POST'
                 }).then(response => {
                     if (!response.ok) {
