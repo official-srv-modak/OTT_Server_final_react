@@ -1,5 +1,5 @@
 .new-page {
-    background-color: black;
+    margin: 10% 10% 10% 10%;
     color: white;
     min-height: 100vh;
     display: flex;
@@ -14,8 +14,6 @@
     align-items: center;
     width: 100%;
     max-width: 100%;
-    padding: 80px; /* Add padding to avoid content hiding under the navbar */
-    margin: 80px; /* Ensure content is not hidden under the navbar */
 }
 
 .page-content h1{
@@ -132,5 +130,25 @@
 
     .general-result-description {
         font-size: 1rem; /* Adjust font size for mobile */
+    }
+    .new-page {
+        color: white;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10%;
+    }
+    .general-result-image {
+        width: 100%;  /* Fixed width */
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        flex-shrink: 0; /* Prevent image from shrinking */
+        max-width: 100%; /* Allow image to scale down if container is smaller */
+        object-fit: cover; /* Ensure image covers its container without distortion */
+    }    
+    .page-content{
+        margin-top: 10%;
     }
 }

@@ -1,7 +1,7 @@
 .login {
     height: 100%;
-    background-image: 
-        url("../../assets/banner2.jpg");
+    /* background-image: 
+        url("../../assets/banner2.jpg"); */
     background-size: cover;
     background-position: center;
     padding: 20px 8%;
@@ -14,10 +14,11 @@
 .login-form{
     width: 100%;
     max-width: 450px;
-    background: rgba(0,0,0,0.75);
-    border-radius: 4px;
+    background: #7a000089;
+    border-radius: 20px;
     padding:60px;
-    margin:auto;
+    margin: auto;
+    margin-top:10%;
     box-shadow:#b5b5b5;
 }
 .login-form h1{
@@ -47,7 +48,7 @@
     border:0;
     outline:0;
     padding:16px;
-    background:#1798CD;
+    background:#00aaff;
     color:#000;
     border-radius: 4px;
     font-size: 16px;
@@ -97,3 +98,10 @@
     font-size: 16px;
     font-weight: 500;
 }
+
+
+@media screen and (max-width: 768px) {
+    .login {
+        margin: 30% 1% 1% 1%; /* Remove margin or adjust as needed */
+    }
+  }

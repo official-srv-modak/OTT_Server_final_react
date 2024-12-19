@@ -11,7 +11,7 @@
 .footer-icons img{
     width: 35px;
     cursor: pointer;
-    background-color: #1798CD;
+    background-color: #00aaff;
     padding:8px;
     border-radius: 50%;
 }
@@ -29,7 +29,7 @@
     color:#9CDAFA;
 }
 .copyright-text{
-    color:#1798CD;
+    color:#00aaff;
     font-size:14px;
 }
 

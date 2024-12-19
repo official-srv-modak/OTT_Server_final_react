@@ -1,5 +1,5 @@
 /* General Page Styling */
-.airforce-page {
+.exam-page {
     color: white;
     min-height: 100vh;
     display: flex;
@@ -9,7 +9,7 @@
 }
 
 /* Page Content Styling */
-.airforce-page-content {
+.exam-page-content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,7 +20,7 @@
 }
 
 /* Title Styling */
-.airforce-page-title {
+.exam-page-title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     text-align: center;
@@ -28,7 +28,7 @@
 }
 
 /* Collage Container */
-.airforce-collage {
+.exam-collage {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
@@ -37,7 +37,7 @@
 }
 
 /* Individual Collage Tile */
-.airforce-collage-tile {
+.exam-collage-tile {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,13 +54,13 @@
 }
 
 /* Hover Effect */
-.airforce-collage-tile:hover {
+.exam-collage-tile:hover {
     transform: scale(1.05); /* Slight zoom */
     background-color: #004080; /* Highlighted air force blue */
 }
 
 /* Collage Image Styling */
-.airforce-collage-image {
+.exam-collage-image {
     width: 100%;
     max-width: 400px;
     height: auto;
@@ -70,7 +70,7 @@
 }
 
 /* Description Styling */
-.airforce-result-description {
+.exam-result-description {
     font-size: 1rem;
     text-align: center;
     margin: 0.5rem 0;
@@ -82,15 +82,15 @@
 
 /* Responsive Styling */
 @media screen and (max-width: 768px) {
-    .airforce-page-content {
-        padding: 1rem; /* Reduce padding for smaller screens */
+    .exam-page-content {
+        padding: 2rem; /* Reduce padding for smaller screens */
     }
 
-    .airforce-page-title {
+    .exam-page-title {
         font-size: 2rem; /* Adjust title size */
     }
 
-    .airforce-collage-tile {
+    .exam-collage-tile {
         padding: 1rem; /* Reduce padding inside tiles */
     }
 }

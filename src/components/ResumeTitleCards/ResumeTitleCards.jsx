@@ -13,7 +13,7 @@ const ResumeTitleCards = ({ title, movies }) => {
               <Link
                 to={`/player/${card.id}`}
                 className="card-link"
-                state={{ url: card.url, name: card.name, id: card.id }}
+                state={{ url: card.url, name: card.name, id: card.id, pos: card.position }}
               >
                 <img src={card.album_art_path} alt={card.name} />
               </Link>

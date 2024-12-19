@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';  // Import Li
 import './Search.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import logo from '../../assets/logo.png';
 
 const Search = () => {
   const [query, setQuery] = useState('');
@@ -52,7 +53,7 @@ const Search = () => {
           throw new Error('Network response was not ok');
         }
 
-        const textData = await response.json(); 
+        const textData = await response.json();
         let data;
         try {
           data = textData.fileSystemArrayList;  // Parse the string into an object
@@ -85,22 +86,25 @@ const Search = () => {
     }
 
     return (
-      <div className="search-results-list">
-        {searchResults.map((card) => (
-          <Link
-            key={card.id}
-            to={`/player/${card.id}`} // Navigate to the player page with the card id in the URL
-            className="card"
-            state={{ url: card.url, name: card.name, id:card.id }} // Pass data (URL and name) in the state
-          >
-            <div className="search-result-tile">
-              <img src={card.albumArtPath} alt={card.name} className="search-result-image" />
-              <h3>{card.name}</h3>
-              {/* <p>{card.des}</p> Description for more details */}
-            </div>
-          </Link>
-        ))}
-      </div>
+      <>
+        <div className="search-results-list">
+          {searchResults.map((card) => (
+            <Link
+              key={card.id}
+              to={`/player/${card.id}`} // Navigate to the player page with the card id in the URL
+              className="card"
+              state={{ url: card.url, name: card.name, id: card.id }} // Pass data (URL and name) in the state
+            >
+              <div className="search-result-tile">
+                <img src={card.albumArtPath} alt={card.name} className="search-result-image" />
+                <h3>{card.name}</h3>
+                {/* <p>{card.des}</p> Description for more details */}
+              </div>
+            </Link>
+          ))}
+        </div>
+      </>
+
     );
   };
 
@@ -108,6 +112,7 @@ const Search = () => {
     <div className="search-page">
       <Navbar />
       <div className="search-content">
+        <img src={logo} alt="Logo" className="navbar-logo-mobile" />
         <input
           type="text"
           placeholder="Search..."

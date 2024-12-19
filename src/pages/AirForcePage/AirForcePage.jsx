@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'; // Link for navigation
 import './AirForcePage.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import logo from '../../assets/logo.png';
+
 
 const airforceImages = [
   {
@@ -36,6 +38,7 @@ const AirForcePage = () => {
     <div className="airforce-page">
       <Navbar />
       <div className="airforce-page-content">
+        <img src={logo} alt="Logo" className="navbar-logo-mobile" />
         <h1 className="airforce-page-title">Indian Air Force - Warriors of the Sky</h1>
         <div className="airforce-collage">
           {airforceImages.map((image) => (

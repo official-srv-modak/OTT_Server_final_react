@@ -1,12 +1,18 @@
 .player {
-    width: 90%;
+    width: 100%;
+    height: auto;
     /* max-width: 800px; Set a maximum width for larger screens */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Center items horizontally */
-    position: relative; /* Ensure positioning context for absolute children */
-    margin: 3% 3% 0 3%; /* Center the player within the parent container */
+    justify-content: center;
+    /* Center items vertically */
+    align-items: center;
+    /* Center items horizontally */
+    position: relative;
+    /* Ensure positioning context for absolute children */
+    margin: 10% 0% 0% 0%;
+    /* margin: 10% 3% 0 3%; */
+    /* Center the player within the parent container */
 }
 
 .player img {
@@ -18,46 +24,98 @@
 }
 
 .player iframe {
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 .player-info {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    width: 100%; /* Full width for visibility */
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Center items horizontally */
+    width: 100%;
+    /* Full width for visibility */
     font-weight: 700;
-    margin-bottom: 20px; /* Space between info and video */
-    z-index: 10; /* Ensure it appears above video */
+    margin-bottom: 20px;
+    /* Space between info and video */
+    z-index: 10;
+    /* Ensure it appears above video */
 }
 
 .player-info .a,
 .player-info .b,
 .player-info .c {
-    background-color: #00000084; /* Changed to black */
-    color: #ffffff; /* Changed to white */
+    background-color: #00000084;
+    /* Changed to black */
+    color: #ffffff;
+    /* Changed to white */
     padding: 5px;
     border-radius: 4px;
     margin-top: -10%;
-    text-align: center; /* Center text within these elements */
+    text-align: center;
+    /* Center text within these elements */
     /* width: 10%; Make it full width to center text effectively */
 }
 
 .video-container {
-    width: 100%; /* Full width for the video */
-    position: relative; /* Context for the overlay */
+    width: 100%;
+    /* Full width for the video */
+    position: relative;
+    /* Context for the overlay */
 }
 
 .player video {
-    width: 100%; /* Ensure video fits within container */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Optional: rounding the video corners */
+    width: 100%;
+    /* Ensure video fits within container */
+    height: auto;
+    margin: 10dp;
+    /* Maintain aspect ratio */
+    /* border-radius: 10px; */
+    /* Optional: rounding the video corners */
 }
 
 .overlay {
     position: absolute;
-    top: 20px; /* Position from the top */
-    left: 20px; /* Position from the left */
-    color: white; /* Change text color to white */
-    z-index: 10; /* Ensure it appears above the video */
+    top: 20px;
+    /* Position from the top */
+    left: 20px;
+    /* Position from the left */
+    color: white;
+    /* Change text color to white */
+    z-index: 10;
+    /* Ensure it appears above the video */
+}
+
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .player {
+        /* max-width: 800px; Set a maximum width for larger screens */
+        display: flex;
+        height: 90%;
+        flex-direction: column;
+        justify-content: center;
+        /* Center items vertically */
+        align-items: center;
+        /* Center items horizontally */
+        position: relative;
+        margin: 30% 0% 10% 0%;
+        /* Ensure positioning context for absolute children */
+        /* Center the player within the parent container */
+    }
+
+    .player-info .a,
+    .player-info .b,
+    .player-info .c {
+        background-color: #00000084;
+        /* Changed to black */
+        color: #ffffff;
+        /* Changed to white */
+        padding: 5px;
+        border-radius: 4px;
+        margin: 5%;
+        text-align: center;
+        /* Center text within these elements */
+        /* width: 10%; Make it full width to center text effectively */
+    }
 }

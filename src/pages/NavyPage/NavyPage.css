@@ -1,6 +1,5 @@
 /* General Page Styling */
 .navy-page {
-    background-color: #000000; /* Black background */
     color: white;
     min-height: 100vh;
     display: flex;

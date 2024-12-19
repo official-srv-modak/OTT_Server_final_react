@@ -6,7 +6,7 @@
 
 .movie-cards h2 {
     text-align: center;
-    background-color: #1798CD;
+    background-color: #00aaff;
     padding: 15px;
     font-weight: 700;
     font-size: 28px;
@@ -109,6 +109,13 @@
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #1798CD;
+    background-color: #00aaff;
     color: white;
 }
+
+@media screen and (max-width: 768px) {
+    .movie-cards {
+        margin: 25% 5% 5% 5%;
+        padding-top: 10%;
+    }
+  }
