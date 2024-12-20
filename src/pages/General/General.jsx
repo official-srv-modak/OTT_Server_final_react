@@ -6,6 +6,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 
 // Sample JSON data
+const baseUrl = import.meta.env.VITE_BASE_URL;
 const productData = {
     "product": {
         "name": "NCC Eduforce",
@@ -14,32 +15,32 @@ const productData = {
             {
                 "title": "OTT Server for Indian Armed Forces",
                 "description": "NCC Eduforce is designed to serve as an OTT server exclusively for the Indian Armed Forces, providing secure and private access to essential resources.",
-                "image": "http://localhost/sample_images/image1.webp"
+                "image": baseUrl+"sample_images/image1.webp"
             },
             {
                 "title": "Intranet Only Usage",
                 "description": "NCC Eduforce is intended to be used over an intranet network only, ensuring high security and controlled access within the Armed Forces.",
-                "image": "http://localhost/sample_images/image2.jpg"
+                "image": baseUrl+"sample_images/image2.jpg"
             },
             {
                 "title": "Course Materials and Videos",
                 "description": "All the course materials and educational videos are available in the OTT server for easy access by the personnel of the Indian Armed Forces.",
-                "image": "http://localhost/sample_images/image3.jpg"
+                "image": baseUrl+"sample_images/image3.jpg"
             },
             {
                 "title": "Ebooks and Learning Resources",
                 "description": "NCC Eduforce provides a collection of ebooks and other digital learning resources for the Indian Armed Forces personnel.",
-                "image": "http://localhost/sample_images/image4.jpg"
+                "image": baseUrl+"sample_images/image4.jpg"
             },
             {
                 "title": "Live Events",
                 "description": "Stay up to date with live events, including training sessions, briefings, and other important announcements relevant to the Indian Armed Forces.",
-                "image": "http://localhost/sample_images/image5.jpg"
+                "image": baseUrl+"sample_images/image5.jpg"
             },
             {
                 "title": "General Information about the Indian Armed Forces",
                 "description": "NCC Eduforce hosts general information about the Indian Armed Forces, including details about the Navy, Army, and Air Force, along with their course materials and any important notices.",
-                "image": "http://localhost/sample_images/image6.svg"
+                "image": baseUrl+"sample_images/image6.svg"
             }
         ],
         "target_audience": "Indian Armed Forces personnel",
