@@ -97,6 +97,8 @@ const Navbar = ({ flag }) => {
               <li><Link to="/ebooks" onClick={closeMenu}>Ebooks</Link></li>
               <li><Link to="/exam" onClick={closeMenu}>Exam</Link></li>
               <li><Link to="/categories/misc" onClick={closeMenu}>Misc</Link></li>
+              <li><Link to="/page1" onClick={closeMenu}>Test</Link></li>
+
             </>
           )}
         </ul>

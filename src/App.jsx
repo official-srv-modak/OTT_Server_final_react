@@ -14,6 +14,8 @@ import ArmyPage from './pages/ArmyPage/ArmyPage'
 import AirForcePage from './pages/AirForcePage/AirForcePage'
 import ExamPage from './pages/ExamPage/ExamPage'
 import CustomVideoPlayer from './components/CustomVideoPlayer/CustomVideoPlayer'
+import Page1 from './pages/TestPages/Page1'
+import Page2 from './pages/TestPages/Page2'
 
 const App = () => {
   return (
@@ -32,6 +34,8 @@ const App = () => {
         <Route path="/army" element={<ArmyPage />} />
         <Route path="/airforce" element={<AirForcePage />} />
         <Route path="/exam" element={<ExamPage />} />
+        <Route path="/page1" element={<Page1 />} />
+        <Route path="/test/:testTitle" element={<Page2 />} />
       </Routes>
     </div>
   )
