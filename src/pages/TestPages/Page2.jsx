@@ -71,15 +71,15 @@ function Page2() {
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <div className="page">
+    <div className="test-page">
       <h1>{testTitle}</h1>
       <h2>Time Remaining: {Math.floor(timer / 60)}:{timer % 60}</h2>
       <h2>{currentQuestion.question}</h2>
-      <div className="options">
+      <div className="test-options">
         {["option1", "option2", "option3", "option4"].map((option, index) => (
           <button
             key={index}
-            className={`option ${
+            className={`test-option ${
               selectedAnswer === currentQuestion[option] ? "selected" : ""
             }`}
             onClick={() => setSelectedAnswer(currentQuestion[option])}
@@ -88,7 +88,7 @@ function Page2() {
           </button>
         ))}
       </div>
-      <div className="navigation">
+      <div className="test-navigation">
         {currentQuestionIndex < questions.length - 1 ? (
           <button onClick={handleNext} className="next-btn">
             Next

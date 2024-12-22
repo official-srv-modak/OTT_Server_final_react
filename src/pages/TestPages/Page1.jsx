@@ -36,12 +36,12 @@ function Page1() {
   }
 
   return (
-    <div className="page">
+    <div className="test-page">
       <h1>Available Tests</h1>
       <ul className="test-list">
         {tests.map((test, index) => (
           <li key={index} className="test-item">
-            <button onClick={() => startTest(test)}>
+            <button className="next-btn" onClick={() => startTest(test)}>
               {test.title} - {test.duration / 60} minutes
             </button>
           </li>

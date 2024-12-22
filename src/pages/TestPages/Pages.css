@@ -1,19 +1,19 @@
-body {
+/* body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
-  }
+  } */
   
-  .page {
+  .test-page {
     padding: 20px;
     max-width: 600px;
     margin: 0 auto;
   }
-  
+/*   
   h1 {
     font-size: 24px;
     color: #333;
-  }
+  } */
   
   .file-input {
     display: block;
@@ -35,12 +35,12 @@ body {
     text-align: center;
   }
   
-  .options {
+  .test-options {
     display: flex;
     flex-direction: column;
   }
   
-  .option {
+  .test-option {
     margin: 10px 0;
     padding: 10px;
     border: none;
@@ -50,11 +50,11 @@ body {
     cursor: pointer;
   }
   
-  .option.selected {
+  .test-option.selected {
     background: #28a745;
   }
   
-  .navigation {
+  .test-navigation {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -71,7 +71,7 @@ body {
   }
   
   @media (max-width: 600px) {
-    .page {
+    .test-page {
       padding: 10px;
     }
   
@@ -79,7 +79,7 @@ body {
       font-size: 20px;
     }
   
-    .option {
+    .test-option {
       font-size: 14px;
     }
   }
