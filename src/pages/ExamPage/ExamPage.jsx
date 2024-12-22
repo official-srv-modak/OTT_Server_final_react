@@ -38,7 +38,7 @@ const ExamPage = () => {
         <h1 className="exam-page-title">NCC Certification exam</h1>
         <div className="exam-collage">
           {examImages.map((image) => (
-            <Link key={image.id} className="exam-collage-tile">
+            <Link key={image.id} className="exam-collage-tile" to="/page1">
               <img src={image.url} alt={image.title} className="exam-collage-image" />
               <h3>{image.title}</h3>
               <p className="exam-result-description">{image.description}</p>

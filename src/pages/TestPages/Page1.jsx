@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Pages.css";
+import Navbar from '../../components/Navbar/Navbar';
 
 function Page1() {
   const [tests, setTests] = useState([]);
   const navigate = useNavigate();
+  const getTestUrl = import.meta.env.VITE_GET_TESTS;
 
   useEffect(() => {
     // Fetch test files and their metadata from the backend
     const fetchTests = async () => {
       try {
-        const response = await fetch("http://localhost:9999/modakflix-test/api/get-tests");
+        const response = await fetch(getTestUrl);
         const data = await response.json();
 
         // Ensure the API response contains the required fields
@@ -37,6 +39,7 @@ function Page1() {
 
   return (
     <div className="test-page">
+      <Navbar flag={1} />
       <h1>Available Tests</h1>
       <ul className="test-list">
         {tests.map((test, index) => (
