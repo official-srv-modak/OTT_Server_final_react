@@ -1,13 +1,13 @@
-body {
+/* body {
     margin: 10%;
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
-  }
+  } */
   
   .test-page {
     padding: 20px;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 10% auto;
   }
 /*   
   h1 {
@@ -70,9 +70,11 @@ body {
     cursor: pointer;
   }
   
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     .test-page {
       padding: 10px;
+      margin: 10%;
+      margin-top: 20%;
     }
   
     h1 {
@@ -81,9 +83,6 @@ body {
   
     .test-option {
       font-size: 14px;
-    }
-    body{
-      margin: 20%;
     }
   }
   
