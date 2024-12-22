@@ -20,6 +20,7 @@ function Page2() {
 
     useEffect(() => {
         // Fetch questions from the API based on testTitle
+        localStorage.setItem("answers", null);
         fetch(`${getTestQuestionsUrl}${testTitle}`)
             .then((response) => response.json())
             .then((data) => {
