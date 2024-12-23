@@ -83,12 +83,11 @@ const Navbar = ({ flag }) => {
           )}
         </div>
         <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
-          <img src={logo} alt="Logo" className="navbar-logo-mobile" />
+          {/* <img src={logo} alt="Logo" className="navbar-logo-mobile" /> */}
           {flag !== 1 && (
             <>
               <li><Link to="/general" onClick={closeMenu}>Home</Link></li>
               <li><Link to="/" onClick={closeMenu}>Study</Link></li>
-              {/* <li><Link to="/movies" onClick={closeMenu}>Movies</Link></li> */}
               <li><Link to="/navy" onClick={closeMenu}>Navy</Link></li>
               <li><Link to="/army" onClick={closeMenu}>Army</Link></li>
               <li><Link to="/airforce" onClick={closeMenu}>Air Force</Link></li>
