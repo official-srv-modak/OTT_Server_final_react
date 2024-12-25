@@ -4,8 +4,8 @@ import "./Pages.css";
 import Navbar from '../../components/Navbar/Navbar';
 
 function Page2() {
-    const { testTitle } = useParams();  // Getting the testTitle from the URL params
-    const { state } = useLocation();  // Getting the state (e.g., duration) passed from the previous page
+    const { testTitle } = useParams();
+    const { state } = useLocation();
     const navigate = useNavigate();
 
     const [questions, setQuestions] = useState([]);
@@ -13,18 +13,17 @@ function Page2() {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [timer, setTimer] = useState(state?.duration || 0);
-    const [answers, setAnswers] = useState({});  // Store selected answers in an object
+    const [answers, setAnswers] = useState({});
+    const [tabSwitchCount, setTabSwitchCount] = useState(0); // Track tab switches
     const getTestQuestionsUrl = import.meta.env.VITE_GET_TEST_QUESTIONS;
     const getRecordTestUrl = import.meta.env.VITE_RECORD_TEST;
 
-
     useEffect(() => {
-        // Fetch questions from the API based on testTitle
         localStorage.setItem("answers", null);
         fetch(`${getTestQuestionsUrl}${testTitle}`)
             .then((response) => response.json())
             .then((data) => {
-                setQuestions(data);  // Assuming the API returns an array of questions
+                setQuestions(data);
             })
             .catch((error) => {
                 console.error("Error fetching questions:", error);
@@ -32,7 +31,6 @@ function Page2() {
     }, [testTitle]);
 
     useEffect(() => {
-        // Timer countdown
         if (timer > 0) {
             const intervalId = setInterval(() => {
                 setTimer((prev) => prev - 1);
@@ -43,12 +41,42 @@ function Page2() {
         }
     }, [timer]);
 
-    // Handle selected answer update
+    useEffect(() => {
+        const handleVisibilityChange = () => {
+            if (document.visibilityState === "hidden") {
+                setTabSwitchCount((prev) => prev + 1);
+            }
+        };
+
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+
+        return () => {
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (tabSwitchCount === 1) {
+            alert("Warning: Do not switch tabs during the exam.");
+        } else if (tabSwitchCount > 1) {
+            alert("Exam stopped due to malpractices. You have been awarded 0.");
+            // Call API to record the test result with 0 marks
+            fetch(getRecordTestUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    username: "test_user",
+                    marks: 0,
+                }),
+            }).then(() => navigate("/malpractice"));
+        }
+    }, [tabSwitchCount, getRecordTestUrl, navigate]);
+
     const handleAnswerSelection = (answer) => {
         setSelectedAnswer(answer);
         const updatedAnswers = { ...answers, [currentQuestionIndex]: answer };
         setAnswers(updatedAnswers);
-        localStorage.setItem('answers', JSON.stringify(updatedAnswers));  // Store answers in localStorage
+        localStorage.setItem('answers', JSON.stringify(updatedAnswers));
     };
 
     const handleNext = () => {
@@ -61,11 +89,6 @@ function Page2() {
     };
 
     const handlePrevious = () => {
-        if (selectedAnswer) {
-            const updatedAnswers = { ...answers, [currentQuestionIndex]: selectedAnswer };
-            setAnswers(updatedAnswers);
-            localStorage.setItem('answers', JSON.stringify(updatedAnswers));  // Store answers in localStorage
-        }
         setCurrentQuestionIndex(currentQuestionIndex - 1);
         setSelectedAnswer(answers[currentQuestionIndex - 1] || null);
     };
@@ -74,7 +97,7 @@ function Page2() {
         if (selectedAnswer) {
             const updatedAnswers = { ...answers, [currentQuestionIndex]: selectedAnswer };
             setAnswers(updatedAnswers);
-            localStorage.setItem('answers', JSON.stringify(updatedAnswers));  // Store answers in localStorage
+            localStorage.setItem('answers', JSON.stringify(updatedAnswers));
         }
 
         if (selectedAnswer === questions[currentQuestionIndex]?.answer) {
@@ -82,18 +105,16 @@ function Page2() {
         }
 
         alert(`Test finished! Your score is ${score} / ${questions.length}`);
-        // Call API to record the test result
         fetch(getRecordTestUrl, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                username: "test_user", // Hardcoded username
+                username: "test_user",
                 marks: score,
             }),
         }).then(() => navigate("/"));
     };
 
-    // Load answers from localStorage if they exist
     useEffect(() => {
         const savedAnswers = JSON.parse(localStorage.getItem('answers'));
         if (savedAnswers) {
@@ -101,7 +122,6 @@ function Page2() {
         }
     }, []);
 
-    // Set the selected answer when navigating to a new question
     useEffect(() => {
         setSelectedAnswer(answers[currentQuestionIndex] || null);
     }, [currentQuestionIndex, answers]);

@@ -16,6 +16,7 @@ import ExamPage from './pages/ExamPage/ExamPage'
 import CustomVideoPlayer from './components/CustomVideoPlayer/CustomVideoPlayer'
 import Page1 from './pages/TestPages/Page1'
 import Page2 from './pages/TestPages/Page2'
+import MalPracticeDialogPage from './pages/MalPracticeDiaglogPage/MalPracticeDialogPage'
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="/exam" element={<ExamPage />} />
         <Route path="/page1" element={<Page1 />} />
         <Route path="/test/:testTitle" element={<Page2 />} />
+        <Route path="/malpractice" element={<MalPracticeDialogPage />} />
       </Routes>
     </div>
   )
