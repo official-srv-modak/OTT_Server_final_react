@@ -15,6 +15,9 @@ function Page2() {
     const [timer, setTimer] = useState(state?.duration || 0);
     const [answers, setAnswers] = useState({});
     const [tabSwitchCount, setTabSwitchCount] = useState(0); // Track tab switches
+    const malpracticeLog = []; // To record the URLs and events
+
+
     const getTestQuestionsUrl = import.meta.env.VITE_GET_TEST_QUESTIONS;
     const getRecordTestUrl = import.meta.env.VITE_RECORD_TEST;
 
@@ -42,22 +45,34 @@ function Page2() {
     }, [timer]);
 
     useEffect(() => {
+
         const handleVisibilityChange = () => {
             if (document.visibilityState === "hidden") {
-                setTabSwitchCount((prev) => prev + 1);
+                const visitedUrl = document.referrer || "Unknown URL";
+                malpracticeLog.push({ event: "Tab switch", url: visitedUrl, timestamp: new Date().toISOString() });
+                console.log("Tab switch detected:", visitedUrl);
             }
         };
 
+        const handleWindowBlur = () => {
+            malpracticeLog.push({ event: "Left browser window", url: "Desktop environment", timestamp: new Date().toISOString() });
+            console.log("User left the browser window");
+            setTabSwitchCount((prev) => prev + 1);
+        };
+
         document.addEventListener("visibilitychange", handleVisibilityChange);
+        window.addEventListener("blur", handleWindowBlur);
 
         return () => {
-            document.removeEventListener("visibilitychange", handleVisibilityChange);
+            // document.removeEventListener("visibilitychange", handleVisibilityChange);
+            window.removeEventListener("blur", handleWindowBlur);
         };
     }, []);
 
+
     useEffect(() => {
         if (tabSwitchCount === 1) {
-            alert("Warning: Do not switch tabs during the exam.");
+            alert("Warning: Do not switch tabs or windows during the exam.");
         } else if (tabSwitchCount > 1) {
             alert("Exam stopped due to malpractices. You have been awarded 0.");
             // Call API to record the test result with 0 marks
