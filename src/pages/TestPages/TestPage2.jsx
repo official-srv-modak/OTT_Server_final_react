@@ -21,6 +21,27 @@ function Page2() {
     const getTestQuestionsUrl = import.meta.env.VITE_GET_TEST_QUESTIONS;
     const getRecordTestUrl = import.meta.env.VITE_RECORD_TEST;
 
+
+    useEffect(() => {
+        const handleBackButton = (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            // alert("Back navigation is disabled during the test.");
+        };
+    
+        // Push a dummy state to the history stack
+        window.history.pushState(null, null, null, null, null, null, null, window.location.href);
+    
+        // Add event listener for back navigation
+        window.addEventListener("popstate", handleBackButton);
+    
+        return () => {
+            // Remove event listener on cleanup
+            window.removeEventListener("popstate", handleBackButton);
+        };
+    }, []);
+    
+
     useEffect(() => {
         localStorage.setItem("answers", null);
         fetch(`${getTestQuestionsUrl}${testTitle}`)
