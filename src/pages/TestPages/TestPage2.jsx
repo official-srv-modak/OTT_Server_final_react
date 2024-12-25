@@ -27,10 +27,11 @@ function Page2() {
             event.preventDefault();
             event.stopPropagation();
             // alert("Back navigation is disabled during the test.");
+            window.history.pushState(null, window.location.href);
         };
     
         // Push a dummy state to the history stack
-        window.history.pushState(null, null, null, null, null, null, null, window.location.href);
+        window.history.pushState(null, null, window.location.href);
     
         // Add event listener for back navigation
         window.addEventListener("popstate", handleBackButton);
