@@ -27,7 +27,7 @@ function Page2() {
             event.preventDefault();
             event.stopPropagation();
             // alert("Back navigation is disabled during the test.");
-            window.history.pushState(null, window.location.href);
+            // window.history.pushState(null, window.location.href);
         };
     
         // Push a dummy state to the history stack
