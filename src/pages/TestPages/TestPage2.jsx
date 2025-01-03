@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import "./Pages.css";
 import Navbar from '../../components/Navbar/Navbar';
+import Dialog from '../../components/MessageComponent/Dialog';
 
 function Page2() {
     const { testTitle } = useParams();
@@ -17,6 +18,16 @@ function Page2() {
     const [tabSwitchCount, setTabSwitchCount] = useState(0); // Track tab switches
     const malpracticeLog = []; // To record the URLs and events
 
+    const [dialog, setDialog] = useState(null); // State for dialog
+
+    const showDialog = (message, buttonText = "OK") => {
+        setDialog({ message, buttonText });
+    };
+
+    const handleCloseDialog = () => {
+        setDialog(null);
+    };
+
 
     const getTestQuestionsUrl = import.meta.env.VITE_GET_TEST_QUESTIONS;
     const getRecordTestUrl = import.meta.env.VITE_RECORD_TEST;
@@ -29,19 +40,19 @@ function Page2() {
             // alert("Back navigation is disabled during the test.");
             // window.history.pushState(null, window.location.href);
         };
-    
+
         // Push a dummy state to the history stack
         window.history.pushState(null, null, null, null, null, null, null, window.location.href);
-    
+
         // Add event listener for back navigation
         window.addEventListener("popstate", handleBackButton);
-    
+
         return () => {
             // Remove event listener on cleanup
             window.removeEventListener("popstate", handleBackButton);
         };
     }, []);
-    
+
 
     useEffect(() => {
         localStorage.setItem("answers", null);
@@ -94,9 +105,12 @@ function Page2() {
 
     useEffect(() => {
         if (tabSwitchCount === 1) {
-            alert("Warning: Do not switch tabs or windows during the exam.");
+            // alert("Warning: Do not switch tabs or windows during the exam.");
+            showDialog("Warning: Do not switch tabs or windows during the exam.", "Sorry");
+
         } else if (tabSwitchCount > 1) {
-            alert("Exam stopped due to malpractices. You have been awarded 0.");
+            // alert("Exam stopped due to malpractices. You have been awarded 0.");
+            showDialog("Exam stopped due to malpractices. You have been awarded 0.", "Ok");
             // Call API to record the test result with 0 marks
             fetch(getRecordTestUrl, {
                 method: "POST",
@@ -141,7 +155,9 @@ function Page2() {
             setScore(score + 1);
         }
 
-        alert(`Test finished! Your score is ${score} / ${questions.length}`);
+        // alert(`Test finished! Your score is ${score} / ${questions.length}`);
+        showDialog(`Test finished! Your score is ${score} / ${questions.length}`, "Ok");
+
         fetch(getRecordTestUrl, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -203,6 +219,13 @@ function Page2() {
                     </button>
                 )}
             </div>
+            {dialog && (
+                <Dialog
+                    message={dialog.message}
+                    buttonText={dialog.buttonText}
+                    onClose={handleCloseDialog}
+                />
+            )}
         </div>
     );
 }
