@@ -4,6 +4,7 @@ import logo from '../../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import Navbar from '../../components/Navbar/Navbar';
+import Dialog from '../../components/MessageComponent/Dialog';
 
 const Login = () => {
   const [signState, setSignState] = useState("Sign In");
@@ -12,6 +13,17 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+
+  const [dialog, setDialog] = useState(null); // State for dialog
+
+  const showDialog = (message, buttonText = "OK") => {
+    setDialog({ message, buttonText });
+  };
+
+  const handleCloseDialog = () => {
+    setDialog(null);
+  };
 
   const loginUrl = import.meta.env.VITE_SPRING_LOGIN_URL;
   const authUrl = import.meta.env.VITE_SPRING_AUTH_URL;
@@ -60,10 +72,12 @@ const Login = () => {
       });
       const data = await response.json();
       if (data.status === "ACCEPTED") {
-        alert(data.message);
+        // alert(data.message);
+        showDialog(data.message, "ok");
         setSignState("Sign In");
       } else {
-        alert("Signup failed.");
+        // alert("Signup failed.");
+        showDialog("Signup failed", "Retry");
       }
     } catch (error) {
       console.error("Error during signup:", error);
@@ -88,11 +102,14 @@ const Login = () => {
         localStorage.setItem("authToken", response.data.token);
         await authenticate();
       } else {
-        alert(`Login failed: ${response.data.message || "Invalid credentials"}`);
+        // alert(`Login failed: ${response.data.message || "Invalid credentials"}`);
+        showDialog("Login failed, invalid credentials. Please try again.", "Retry");
+
       }
     } catch (error) {
       console.error("Error during login:", error);
-      alert("Login failed. Please check your credentials.");
+      // alert("Login failed. Please check your credentials.");
+      showDialog("Login failed, invalid credentials. Please try again.", "Retry");
     }
   };
 
@@ -110,7 +127,9 @@ const Login = () => {
         localStorage.setItem("user", JSON.stringify(data.user));
         navigate('/general'); // Redirect to the home page on successful authentication
       } else {
-        alert("Authentication failed.");
+        // alert("Authentication failed.");
+        showDialog("Authentication failed.", "Retry");
+
       }
     } catch (error) {
       console.error("Error during authentication:", error);
@@ -129,7 +148,7 @@ const Login = () => {
   return (
     <div className='login'>
       {/* <img src={logo} className='login-logo' alt="" /> */}
-      <Navbar flag={1}/>
+      <Navbar flag={1} />
       <div className="login-form">
         <h1>{signState}</h1>
         <form onSubmit={handleSubmit}>
@@ -195,6 +214,13 @@ const Login = () => {
             <p>Already have an account? <span onClick={() => setSignState("Sign In")}>Sign In now</span></p>
           )}
         </div>
+        {dialog && (
+          <Dialog
+            message={dialog.message}
+            buttonText={dialog.buttonText}
+            onClose={handleCloseDialog}
+          />
+        )}
       </div>
     </div>
   );
