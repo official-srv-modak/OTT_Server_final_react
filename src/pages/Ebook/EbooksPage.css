@@ -113,6 +113,7 @@ a {
         max-width: 100%; /* Ensure cards don't shrink */
         font-size: 14px;
         margin: 0 auto; /* Center the card within the grid cell */
+        margin-bottom: 1.5em;
     }
     .ebook-file-card, .ebook-subfolder-card {
         box-sizing: border-box;

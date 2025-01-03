@@ -72,6 +72,20 @@ const Player = () => {
         setDuration(e.target.duration);
     };
 
+    const handleError = (e) => {
+        const videoElement = e.target;
+        console.error("Video playback error triggered:", e);
+        console.error("Video element error object:", videoElement.error);
+
+        if (videoElement.error) {
+            console.error("Error code:", videoElement.error.code);
+            console.error("Error message:", videoElement.error.message);
+        } else {
+            console.error("An unknown error occurred with the video playback.");
+        }
+    };
+
+
     return (
         <>
             <Navbar />
@@ -79,17 +93,20 @@ const Player = () => {
                 {/* Display the movie name and type in the top left */}
                 {videoUrl ? (
                     <video
-                        key={videoUrl}  // Force re-render when videoUrl changes
+                        key={videoUrl}
                         controls
                         autoPlay
                         width="100%"
                         height="auto"
                         onTimeUpdate={handleTimeUpdate}
                         onLoadedMetadata={handleLoadedMetadata}
+                        onError={handleError} // Add the error handler here
                     >
                         <source src={videoUrl} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
+
+
                 ) : (
                     <p>Loading video...</p>
                 )}
