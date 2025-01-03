@@ -103,7 +103,7 @@
 }
 
 /* Mobile Responsiveness */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1080px) {
   .hamburger {
     display: flex;
   }
@@ -137,7 +137,9 @@
   .navbar-logo {
     display: none;
   }
+}
 
+@media screen and (max-width: 768px) {
   .navbar-logo-mobile {
     display: flex;
     align-self: center;
