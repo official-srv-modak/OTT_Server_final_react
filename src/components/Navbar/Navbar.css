@@ -1,12 +1,18 @@
 /* General Styling */
 .navbar {
-  /* width: 100%; */
   padding: 15px 20px;
-  background-color: #7a000089;
+  background-color: transparent;
   color: #e5e5e5;
   position: fixed;
   top: 0;
+  width: 100%;
   z-index: 1000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: #7a0000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-container {

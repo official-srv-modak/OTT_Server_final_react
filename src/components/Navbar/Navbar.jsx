@@ -9,6 +9,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const Navbar = ({ flag }) => {
   const [username, setUsername] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
 
   const authUrl = import.meta.env.VITE_SPRING_AUTH_URL;
@@ -69,8 +70,19 @@ const Navbar = ({ flag }) => {
     setIsMenuOpen(false);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-left">
           <img src={logo} alt="Logo" className="navbar-logo" />
@@ -83,7 +95,6 @@ const Navbar = ({ flag }) => {
           )}
         </div>
         <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
-          {/* <img src={logo} alt="Logo" className="navbar-logo-mobile" /> */}
           {flag !== 1 && (
             <>
               <li><Link to="/general" onClick={closeMenu}>Home</Link></li>
