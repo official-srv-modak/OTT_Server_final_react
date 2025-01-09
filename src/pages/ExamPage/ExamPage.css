@@ -83,7 +83,7 @@
 /* Responsive Styling */
 @media screen and (max-width: 768px) {
     .exam-page-content {
-        padding: 2rem; /* Reduce padding for smaller screens */
+        padding: 0rem 2rem 0rem 2rem; /* Reduce padding for smaller screens */
     }
 
     .exam-page-title {
