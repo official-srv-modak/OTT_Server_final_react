@@ -122,6 +122,7 @@
     top: 100%;
     left: 0;
     width: 100%;
+    gap: 20px;
     padding: 15px 0;
     overflow-y: auto; /* Makes the menu scrollable */
     max-height: 80vh; /* Limits the height to 80% of the screen height */
