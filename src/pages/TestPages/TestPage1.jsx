@@ -39,7 +39,7 @@ function Page1() {
 
   return (
     <div className="test-page">
-      <Navbar flag={1} />
+      <Navbar />
       <h1>Available Tests</h1>
       <ul className="test-list">
         {tests.map((test, index) => (

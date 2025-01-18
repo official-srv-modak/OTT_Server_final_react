@@ -151,4 +151,56 @@
     .page-content{
         margin-top: 10%;
     }
+    .page-content p{
+        margin: 5% 5% 5% 10%;
+        /* align-self: center; */
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .general-result-tile-wrapper {
+        max-width: 100%;
+    }
+
+    .general-result-title {
+        font-size: 1.5rem;
+    }
+
+    .general-result-tile {
+        max-width: 100%;
+        padding: 1rem;
+        flex-direction: column; /* Stack image and text vertically on smaller screens */
+        align-items: center; /* Center the content */
+    }
+
+    .general-result-image {
+        width: 150px; /* Adjust image size for mobile */
+    }
+
+    .general-result-description {
+        font-size: 1rem; /* Adjust font size for mobile */
+    }
+    .new-page {
+        width: 100%;
+        color: white;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 10% 0% 10% 0%;
+
+        /* padding-top: 10%; */
+    }
+    .general-result-image {
+        width: 100%;  /* Fixed width */
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        flex-shrink: 0; /* Prevent image from shrinking */
+        max-width: 100%; /* Allow image to scale down if container is smaller */
+        object-fit: cover; /* Ensure image covers its container without distortion */
+    }   
+    .page-content p{
+        margin: 5% 5% 5% 10%;
+    } 
 }

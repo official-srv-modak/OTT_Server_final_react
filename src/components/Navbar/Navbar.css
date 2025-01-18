@@ -1,12 +1,18 @@
 /* General Styling */
 .navbar {
-  width: 100%;
   padding: 15px 20px;
-  background-color: #7a000089;
+  background-color: transparent;
   color: #e5e5e5;
   position: fixed;
   top: 0;
+  width: 100%;
   z-index: 1000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: #7a0000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-container {
@@ -50,7 +56,7 @@
 .navbar-menu {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 80px;
   align-items: center;
   margin: 0;
 }
@@ -103,7 +109,7 @@
 }
 
 /* Mobile Responsiveness */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1080px) {
   .hamburger {
     display: flex;
   }
@@ -116,6 +122,7 @@
     top: 100%;
     left: 0;
     width: 100%;
+    gap: 20px;
     padding: 15px 0;
     overflow-y: auto; /* Makes the menu scrollable */
     max-height: 80vh; /* Limits the height to 80% of the screen height */
@@ -137,7 +144,9 @@
   .navbar-logo {
     display: none;
   }
+}
 
+@media screen and (max-width: 768px) {
   .navbar-logo-mobile {
     display: flex;
     align-self: center;

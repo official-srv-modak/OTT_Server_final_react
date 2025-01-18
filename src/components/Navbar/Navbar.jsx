@@ -9,6 +9,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const Navbar = ({ flag }) => {
   const [username, setUsername] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
 
   const authUrl = import.meta.env.VITE_SPRING_AUTH_URL;
@@ -69,8 +70,19 @@ const Navbar = ({ flag }) => {
     setIsMenuOpen(false);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-left">
           <img src={logo} alt="Logo" className="navbar-logo" />
@@ -83,16 +95,15 @@ const Navbar = ({ flag }) => {
           )}
         </div>
         <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
-          {/* <img src={logo} alt="Logo" className="navbar-logo-mobile" /> */}
           {flag !== 1 && (
             <>
               <li><Link to="/general" onClick={closeMenu}>Home</Link></li>
               <li><Link to="/" onClick={closeMenu}>Study</Link></li>
-              <li><Link to="/navy" onClick={closeMenu}>Navy</Link></li>
+              {/* <li><Link to="/navy" onClick={closeMenu}>Navy</Link></li>
               <li><Link to="/army" onClick={closeMenu}>Army</Link></li>
               <li><Link to="/airforce" onClick={closeMenu}>Air Force</Link></li>
               <li><Link to="/categories/horror" onClick={closeMenu}>ANO</Link></li>
-              <li><Link to="/categories/scifi" onClick={closeMenu}>Live Events</Link></li>
+              <li><Link to="/categories/scifi" onClick={closeMenu}>Live Events</Link></li> */}
               <li><Link to="/ebooks" onClick={closeMenu}>Ebooks</Link></li>
               <li><Link to="/exam" onClick={closeMenu}>Exam</Link></li>
               <li><Link to="/categories/misc" onClick={closeMenu}>Misc</Link></li>

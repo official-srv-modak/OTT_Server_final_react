@@ -1,0 +1,41 @@
+/* Dialog.css */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dialog-box {
+  background: #7a0000;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 10dp;
+}
+
+.dialog-box p {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.dialog-box button {
+  padding: 10px 20px;
+  background: #00aaff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dialog-box button:hover {
+  background: #0088cc;
+}

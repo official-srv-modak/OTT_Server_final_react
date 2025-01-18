@@ -1,0 +1,46 @@
+/* body {
+    margin: 10%;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+  } */
+  
+  .malpratice-page {
+    padding: 20px;
+    /* max-width: 600px; */
+    margin: 10% auto;
+    align-items: center;
+  }
+  
+  .malpractice-h1 {
+    font-size: 32px;
+    color: #820000;
+  }
+
+  
+  .next-btn,
+  .finish-btn {
+    margin-top: 10dp;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .test-page {
+      padding: 10px;
+      margin: 10%;
+      margin-top: 20%;
+    }
+  
+    h1 {
+      font-size: 20px;
+    }
+  
+    .test-option {
+      font-size: 14px;
+    }
+  }
+  
