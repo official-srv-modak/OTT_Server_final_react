@@ -18,6 +18,7 @@
     width:160px;
     border-radius:4px;
     cursor: pointer;
+    object-fit: cover;
 }
 .card-list .card{
     position: relative;
