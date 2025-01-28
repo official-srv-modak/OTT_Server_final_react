@@ -91,6 +91,9 @@ const Player = () => {
             <Navbar />
             <div className='player'>
                 {/* Display the movie name and type in the top left */}
+                <div className="player-info">
+                    <p className='b'>{location.state ? location.state.name : "Movie"}</p>
+                </div>
                 {videoUrl ? (
                     <video
                         key={videoUrl}
@@ -110,10 +113,6 @@ const Player = () => {
                 ) : (
                     <p>Loading video...</p>
                 )}
-
-                <div className="player-info">
-                    <p className='b'>{location.state ? location.state.name : "Movie"}</p>
-                </div>
             </div>
             {videoStreamUrl ? (
                 <CommentApp postId={vidId} />
