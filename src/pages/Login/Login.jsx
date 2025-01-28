@@ -209,7 +209,7 @@ const Login = () => {
         </form>
         <div className="form-switch">
           {signState === "Sign In" ? (
-            <p>New to BootStream? <span onClick={() => setSignState("Sign Up")}>Sign up now</span></p>
+            <p>New to EduForce? <span onClick={() => setSignState("Sign Up")}>Sign up now</span></p>
           ) : (
             <p>Already have an account? <span onClick={() => setSignState("Sign In")}>Sign In now</span></p>
           )}

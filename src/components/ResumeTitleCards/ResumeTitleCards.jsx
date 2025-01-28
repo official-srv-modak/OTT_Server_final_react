@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const ResumeTitleCards = ({ title, movies }) => {
   return (
     <div className='resume-title-cards'>
-      <h2>{title ? title : "Popular on BootStream"}</h2>
+      <h2>{title ? title : "Popular on EduForce"}</h2>
       <div className="resume-card-list">
         {movies && movies.length > 0 ? (
           movies.map((card) => (

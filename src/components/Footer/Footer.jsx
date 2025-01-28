@@ -28,7 +28,7 @@ const Footer = () => {
         <li>Corporate Information</li>
         <li>Contact Us</li>
       </ul>
-      <p className='copyright-text'>© 2024 BooStream, Inc.</p>
+      <p className='copyright-text'>© 2024 EduForce, Inc.</p>
     </div>
   )
 }

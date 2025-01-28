@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const TitleCards = ({ title, movies }) => {
   return (
     <div className='title-cards'>
-      <h2>{title ? title : "Popular on BootStream"}</h2>
+      <h2>{title ? title : "Popular on EduForce"}</h2>
       <div className="card-list">
         {movies && movies.length > 0 ? (
           movies.map((card) => (
