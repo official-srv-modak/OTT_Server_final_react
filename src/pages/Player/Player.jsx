@@ -19,7 +19,8 @@ const Player = () => {
 
     // Ensure VITE_SPRING_VIDEO_STREAM_URL is correctly set in your environment variables
     // const videoStreamUrl = import.meta.env.VITE_SPRING_VIDEO_STREAM_URL_V2;
-    const videoStreamUrl = import.meta.env.VITE_SPRING_VIDEO_STREAM_URL;
+    // const videoStreamUrl = import.meta.env.VITE_SPRING_VIDEO_STREAM_URL;
+    const videoStreamUrl = import.meta.env.VITE_SPRING_VIDEO_STREAM_BASIC_URL;
     const recPosUrl = import.meta.env.VITE_RECORD_POSITION;
     const vidId = location.state?.id;
 
@@ -28,7 +29,8 @@ const Player = () => {
 
         if (videoStreamUrl && location.state && location.state.id && !videoUrl) {
             window.scrollTo(0, 0);
-            setVideoUrl(`${videoStreamUrl}/${location.state.id}?resolution=auto&start=${location.state.pos || 0}`);
+            // setVideoUrl(`${videoStreamUrl}/${location.state.id}?resolution=auto&start=${location.state.pos || 0}`);
+            setVideoUrl(`${videoStreamUrl}/${location.state.id}/false`);
             // setVideoUrl(`${videoStreamUrl}/${location.state.id}?resolution=720p&start=${location.state.pos || 0}`);
         } else {
             console.error("No video URL or ID provided");
