@@ -10,7 +10,7 @@ const baseUrl = import.meta.env.VITE_BASE_URL;
 const productData = {
     "product": {
         "name": "NCC Eduforce",
-        "description": "NCC Eduforce is an OTT platform developed exclusively for the Indian Armed Forces. It provides access to course materials, videos, ebooks, live events, and general information about the Indian Armed Forces.",
+        "description": "NCC Eduforce is an E-Learninig platform developed exclusively for the Indian Armed Forces. It provides access to course materials, videos, ebooks, live events, and general information about the Indian Armed Forces.",
         "features": [
             {
                 "title": "OTT Server for Indian Armed Forces",

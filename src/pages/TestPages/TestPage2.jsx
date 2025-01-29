@@ -105,12 +105,12 @@ function Page2() {
 
     useEffect(() => {
         if (tabSwitchCount === 1) {
-            // alert("Warning: Do not switch tabs or windows during the exam.");
             showDialog("Warning: Do not switch tabs or windows during the exam.", "Sorry");
-
         } else if (tabSwitchCount > 1) {
-            // alert("Exam stopped due to malpractices. You have been awarded 0.");
-            showDialog("Exam stopped due to malpractices. You have been awarded 0.", "Ok");
+            // Define title and message inside the useEffect scope
+            const title = "Malpractice Detected";
+            const message = "Exam stopped due to malpractices. You have been awarded 0.";
+
             // Call API to record the test result with 0 marks
             fetch(getRecordTestUrl, {
                 method: "POST",
@@ -119,9 +119,12 @@ function Page2() {
                     username: "test_user",
                     marks: 0,
                 }),
-            }).then(() => navigate("/malpractice"));
+            }).then(() => navigate("/end-test", {
+                state: { title, message } // Pass state correctly
+            }));
         }
     }, [tabSwitchCount, getRecordTestUrl, navigate]);
+
 
     const handleAnswerSelection = (answer) => {
         setSelectedAnswer(answer);
@@ -156,7 +159,9 @@ function Page2() {
         }
 
         // alert(`Test finished! Your score is ${score} / ${questions.length}`);
-        showDialog(`Test finished! Your score is ${score} / ${questions.length}`, "Ok");
+        // showDialog(`Test finished! Your score is ${score} / ${questions.length}`, "Ok");
+        const title = "Test Finished";
+        const message = `Test finished! Your score is ${score} / ${questions.length}`;
 
         fetch(getRecordTestUrl, {
             method: "POST",
@@ -165,7 +170,9 @@ function Page2() {
                 username: "test_user",
                 marks: score,
             }),
-        }).then(() => navigate("/"));
+        }).then(() => navigate("/end-test", {
+            state: { title, message } // Pass state correctly
+        }));
     };
 
     useEffect(() => {
