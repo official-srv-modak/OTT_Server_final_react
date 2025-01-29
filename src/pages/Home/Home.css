@@ -31,7 +31,7 @@
     width: 80%;
     /* Adjust width to take up more space on the left */
     padding-left: 6%;
-    margin-top: 15%;
+    margin-top: 10%;
     /* Remove margin or adjust as needed */
 }
 
@@ -154,6 +154,7 @@
 
     .hero-caption-web {
         display: none;
+        font-size: 9px;
     }
 
     .hero-caption-mobile {
