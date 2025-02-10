@@ -10,21 +10,21 @@ const baseUrl = import.meta.env.VITE_BASE_URL;
 const productData = {
     "product": {
         "name": "NCC Eduforce",
-        "description": "NCC Eduforce is an E-Learninig platform developed exclusively for the Indian Armed Forces. It provides access to course materials, videos, ebooks, live events, and general information about the Indian Armed Forces.",
+        "description": "NCC eduforce is a e-learning platform exclusively for NCC cadets, ANOs and units.It gives access to a wide range of learning resources, including lecture notes, videos, interactive assessments, Online exams/mock testes and discussion forums.",
         "features": [
             {
                 "title": "OTT Server for Indian Armed Forces",
-                "description": "NCC Eduforce is designed to serve as an OTT server exclusively for the Indian Armed Forces, providing secure and private access to essential resources.",
-                "image": baseUrl+"sample_images/image1.webp"
+                "description": "NCC Eduforce is designed exclusively for NCC cadets, ANOs and units. It gives access to a wide range of learning resources, including lecture notes, videos, interactive assessments",
+                "image": baseUrl+"sample_images/image1.jpg"
             },
-            {
-                "title": "Intranet Only Usage",
-                "description": "NCC Eduforce is intended to be used over an intranet network only, ensuring high security and controlled access within the Armed Forces.",
-                "image": baseUrl+"sample_images/image2.jpg"
-            },
+            // {
+            //     "title": "Intranet Only Usage",
+            //     "description": "NCC Eduforce is intended to be used over an intranet network only, ensuring high security and controlled access within the Armed Forces.",
+            //     "image": baseUrl+"sample_images/image2.jpg"
+            // },
             {
                 "title": "Course Materials and Videos",
-                "description": "All the course materials and educational videos are available in the OTT server for easy access by the personnel of the Indian Armed Forces.",
+                "description": "A central location for accessing e-books, lecture notes, instructional multimedia content (videos, podcasts), and supplementary materials.",
                 "image": baseUrl+"sample_images/image3.jpg"
             },
             {
@@ -39,12 +39,12 @@ const productData = {
             },
             {
                 "title": "General Information about the Indian Armed Forces",
-                "description": "NCC Eduforce hosts general information about the Indian Armed Forces, including details about the Navy, Army, and Air Force, along with their course materials and any important notices.",
+                "description": "In today’s rapidly evolving educational landscape, it is crucial that schools and NCC harness the power of technology to enhance student learning experiences. With this in mind, I have developed an innovative e-learning application specifically designed for the NCC cadets. This platform seeks to address the current challenges in traditional education by offering a digital solution that fosters more interactive, engaging, quality and personalized learning.",
                 "image": baseUrl+"sample_images/image6.svg"
             }
         ],
-        "target_audience": "Indian Armed Forces personnel",
-        "deployment": "Intranet-only usage",
+        "target_audience": "NCC Units, Cadets, and ANOs",
+        "deployment": "India Only",
         "security": "High security with controlled access"
     }
 };
