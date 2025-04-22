@@ -104,6 +104,7 @@ const Navbar = ({ flag }) => {
               <li><Link to="/airforce" onClick={closeMenu}>Air Force</Link></li>
               <li><Link to="/categories/horror" onClick={closeMenu}>ANO</Link></li>
               <li><Link to="/categories/scifi" onClick={closeMenu}>Live Events</Link></li> */}
+              <li><Link to="/profiles" onClick={closeMenu}>Profiles</Link></li>
               <li><Link to="/ebooks" onClick={closeMenu}>Ebooks</Link></li>
               <li><Link to="/exam" onClick={closeMenu}>Exam</Link></li>
               {/* <li><Link to="/categories/misc" onClick={closeMenu}>Live Events</Link></li> */}
