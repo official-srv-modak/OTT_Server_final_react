@@ -97,17 +97,17 @@ const Navbar = ({ flag }) => {
         <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           {flag !== 1 && (
             <>
-              {/* <li><Link to="/general" onClick={closeMenu}>Home</Link></li> */}
+              <li><Link to="/general" onClick={closeMenu}>Home</Link></li>
               <li><Link to="/" onClick={closeMenu}>Study Materials</Link></li>
               {/* <li><Link to="/navy" onClick={closeMenu}>Navy</Link></li>
               <li><Link to="/army" onClick={closeMenu}>Army</Link></li>
               <li><Link to="/airforce" onClick={closeMenu}>Air Force</Link></li>
               <li><Link to="/categories/horror" onClick={closeMenu}>ANO</Link></li>
               <li><Link to="/categories/scifi" onClick={closeMenu}>Live Events</Link></li> */}
-              <li><Link to="/profiles" onClick={closeMenu}>Profiles</Link></li>
+              {/* <li><Link to="/profiles" onClick={closeMenu}>Profiles</Link></li> */}
               <li><Link to="/ebooks" onClick={closeMenu}>Ebooks</Link></li>
               <li><Link to="/exam" onClick={closeMenu}>Exam</Link></li>
-              {/* <li><Link to="/categories/misc" onClick={closeMenu}>Live Events</Link></li> */}
+              <li><Link to="/live-events" onClick={closeMenu}>Live Events</Link></li>
             </>
           )}
         </ul>

@@ -13,10 +13,10 @@ import NavyPage from './pages/NavyPage/NavyPage'
 import ArmyPage from './pages/ArmyPage/ArmyPage'
 import AirForcePage from './pages/AirForcePage/AirForcePage'
 import ExamPage from './pages/ExamPage/ExamPage'
-import CustomVideoPlayer from './components/CustomVideoPlayer/CustomVideoPlayer'
 import Page1 from './pages/TestPages/TestPage1'
 import Page2 from './pages/TestPages/TestPage2'
 import EndTestPage from './pages/EndTestPage/EndTestPage'
+import LiveEvents from './pages/LiveEvents/LiveEvents'
 
 const App = () => {
   return (
@@ -38,6 +38,7 @@ const App = () => {
         <Route path="/page1" element={<Page1 />} />
         <Route path="/test/:testTitle" element={<Page2 />} />
         <Route path="/end-test" element={<EndTestPage />} />
+        <Route path="/live-events" element={<LiveEvents />} />
       </Routes>
     </div>
   )

@@ -8,6 +8,7 @@ function Page2() {
     const { testTitle } = useParams();
     const { state } = useLocation();
     const navigate = useNavigate();
+    const examUrl = import.meta.env.VITE_GET_TEST_QUESTIONS;
 
     const [questions, setQuestions] = useState([]);
     const [score, setScore] = useState(0);
@@ -33,7 +34,7 @@ function Page2() {
     };
 
     const handleSecretCodeSubmit = () => {
-        const url = `http://localhost:9999/modakflix-test/api/get-test-questions-access-code/${testTitle}?secretCode=${secretCode}`;
+        const url = `${examUrl}${testTitle}?secretCode=${secretCode}`;
 
         fetch(url)
             .then((response) => {

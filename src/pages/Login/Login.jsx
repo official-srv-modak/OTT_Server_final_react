@@ -7,6 +7,8 @@ import Navbar from '../../components/Navbar/Navbar';
 import Dialog from '../../components/MessageComponent/Dialog';
 
 const Login = () => {
+  const [showWelcome, setShowWelcome] = useState(true);
+  const [loginType, setLoginType] = useState('');
   const [signState, setSignState] = useState("Sign In");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -14,8 +16,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-
-  const [dialog, setDialog] = useState(null); // State for dialog
+  const [dialog, setDialog] = useState(null);
 
   const showDialog = (message, buttonText = "OK") => {
     setDialog({ message, buttonText });
@@ -72,11 +73,9 @@ const Login = () => {
       });
       const data = await response.json();
       if (data.status === "ACCEPTED") {
-        // alert(data.message);
-        showDialog(data.message, "ok");
+        showDialog(data.message, "OK");
         setSignState("Sign In");
       } else {
-        // alert("Signup failed.");
         showDialog("Signup failed", "Retry");
       }
     } catch (error) {
@@ -102,17 +101,13 @@ const Login = () => {
         localStorage.setItem("authToken", response.data.token);
         await authenticate();
       } else {
-        // alert(`Login failed: ${response.data.message || "Invalid credentials"}`);
         showDialog("Login failed, invalid credentials. Please try again.", "Retry");
-
       }
     } catch (error) {
       console.error("Error during login:", error);
-      // alert("Login failed. Please check your credentials.");
       showDialog("Login failed, invalid credentials. Please try again.", "Retry");
     }
   };
-
 
   const authenticate = async () => {
     try {
@@ -125,15 +120,18 @@ const Login = () => {
       const data = await response.json();
       if (data.status === "OK") {
         localStorage.setItem("user", JSON.stringify(data.user));
-        navigate('/profiles'); // Redirect to the home page on successful authentication
+        navigate('/'); // Redirect to the home page on successful authentication
       } else {
-        // alert("Authentication failed.");
         showDialog("Authentication failed.", "Retry");
-
       }
     } catch (error) {
       console.error("Error during authentication:", error);
     }
+  };
+
+  const handleLoginTypeSelect = (type) => {
+    setLoginType(type);
+    setShowWelcome(false);
   };
 
   const handleSubmit = (e) => {
@@ -145,83 +143,107 @@ const Login = () => {
     }
   };
 
-  return (
-    <div className='login'>
-      {/* <img src={logo} className='login-logo' alt="" /> */}
-      <Navbar flag={1} />
-      <div className="login-form">
-        <h1>{signState}</h1>
-        <form onSubmit={handleSubmit}>
-          {signState === "Sign Up" && (
-            <>
-              <input
-                type="text"
-                placeholder="First Name"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="Last Name"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-              />
-            </>
-          )}
-          {/* Dropdowns */}
-          <select className="login-dropdown">
-            <option value="" disabled selected>Select Directorate</option>
-            <option value="Directorate1">Directorate 1</option>
-            <option value="Directorate2">Directorate 2</option>
-            <option value="Directorate3">Directorate 3</option>
-          </select>
-          <select className="login-dropdown">
-            <option value="" disabled selected>Select Unit</option>
-            <option value="Unit1">Unit 1</option>
-            <option value="Unit2">Unit 2</option>
-            <option value="Unit3">Unit 3</option>
-          </select>
-          <select className="login-dropdown">
-            <option value="" disabled selected>Select School</option>
-            <option value="School1">School 1</option>
-            <option value="School2">School 2</option>
-            <option value="School3">School 3</option>
-          </select>
-          <select className="login-dropdown">
-            <option value="" disabled selected>Select Region</option>
-            <option value="Region1">Region 1</option>
-            <option value="Region2">Region 2</option>
-            <option value="Region3">Region 3</option>
-          </select>
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">{signState}</button>
-        </form>
-        <div className="form-switch">
-          {signState === "Sign In" ? (
-            <p>New to EduForce? <span onClick={() => setSignState("Sign Up")}>Sign up now</span></p>
-          ) : (
-            <p>Already have an account? <span onClick={() => setSignState("Sign In")}>Sign In now</span></p>
-          )}
-        </div>
-        {dialog && (
-          <Dialog
-            message={dialog.message}
-            buttonText={dialog.buttonText}
-            onClose={handleCloseDialog}
-          />
+  const handleGoBack = () => {
+    if (!showWelcome) {
+      setShowWelcome(true);
+      setLoginType('');
+    } else {
+      navigate('/'); // Navigate to home page or wherever you want
+    }
+  };
+
+  const renderWelcomeScreen = () => (
+    <div className="welcome-screen">
+      <h1>Welcome to EduForce</h1>
+      <div className="login-options">
+        <button onClick={() => handleLoginTypeSelect('Directorate')}>Login as Directorate</button>
+        <button onClick={() => handleLoginTypeSelect('ANO')}>Login as ANO</button>
+        <button onClick={() => handleLoginTypeSelect('Cadet')}>Login as Cadet</button>
+      </div>
+    </div>
+  );
+
+  const renderLoginForm = () => (
+    <div className="login-form">
+      <h1>{signState} as {loginType}</h1>
+      <form onSubmit={handleSubmit}>
+        {signState === "Sign Up" && (
+          <>
+            <input
+              type="text"
+              placeholder="First Name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Last Name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </>
+        )}
+        {/* Dropdowns */}
+        <select className="login-dropdown">
+          <option value="" disabled selected>Select Directorate</option>
+          <option value="Directorate1">Directorate 1</option>
+          <option value="Directorate2">Directorate 2</option>
+          <option value="Directorate3">Directorate 3</option>
+        </select>
+        <select className="login-dropdown">
+          <option value="" disabled selected>Select Unit</option>
+          <option value="Unit1">Unit 1</option>
+          <option value="Unit2">Unit 2</option>
+          <option value="Unit3">Unit 3</option>
+        </select>
+        <select className="login-dropdown">
+          <option value="" disabled selected>Select School</option>
+          <option value="School1">School 1</option>
+          <option value="School2">School 2</option>
+          <option value="School3">School 3</option>
+        </select>
+        <select className="login-dropdown">
+          <option value="" disabled selected>Select Region</option>
+          <option value="Region1">Region 1</option>
+          <option value="Region2">Region 2</option>
+          <option value="Region3">Region 3</option>
+        </select>
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">{signState}</button>
+      </form>
+      <div className="form-switch">
+        {signState === "Sign In" ? (
+          <p>New to EduForce? <span onClick={() => setSignState("Sign Up")}>Sign up now</span></p>
+        ) : (
+          <p>Already have an account? <span onClick={() => setSignState("Sign In")}>Sign In now</span></p>
         )}
       </div>
+      <button onClick={handleGoBack} className="go-back-btn">Go Back</button>
+    </div>
+  );
+
+  return (
+    <div className='login'>
+      <Navbar flag={1} />
+      {showWelcome ? renderWelcomeScreen() : renderLoginForm()}
+      {dialog && (
+        <Dialog
+          message={dialog.message}
+          buttonText={dialog.buttonText}
+          onClose={handleCloseDialog}
+        />
+      )}
     </div>
   );
 };
