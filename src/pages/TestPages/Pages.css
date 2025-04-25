@@ -3,6 +3,46 @@
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
   } */
+  .secret-code-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .secret-code-dialog h2 {
+    margin-bottom: 20px;
+  }
+  
+  .secret-code-dialog input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .secret-code-dialog button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .secret-code-dialog button:hover {
+    background-color: #0056b3;
+  }
   
   .test-page {
     padding: 20px;
