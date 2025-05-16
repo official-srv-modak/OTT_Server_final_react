@@ -148,7 +148,7 @@ const Login = () => {
       setShowWelcome(true);
       setLoginType('');
     } else {
-      navigate('/'); // Navigate to home page or wherever you want
+      navigate('/profiles'); // Navigate to home page or wherever you want
     }
   };
 
